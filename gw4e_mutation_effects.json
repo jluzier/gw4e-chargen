@@ -1,0 +1,502 @@
+{
+  "_meta": {
+    "source": "TSR 07514 - Gamma World, 4th Edition (1992 boxed set rulebook), Chapter 3: Mutations, pp. 26-47",
+    "purpose": "Mechanical effect summaries for every mutation named in gw4e_character_generation.json's physicalMutationsTable, mentalMutationsTable, and plantMutationsTable. Paraphrased mechanical data only (dice, ranges, durations, damage) - not the book's prose.",
+    "usageNote": "Keyed by mutation name exactly matching the 'mutation' field in the roll tables (including the trailing * for mutations with a power score, and (D) for defects, so lookups are a direct string match). 'type' = Physical/Mental/Plant category tags from the book. 'activation' = Permanent / Automatic / Activated. 'mp' = power score requirement ('none' or '4d6-L, rolled separately'). 'effect' = paraphrased mechanical summary.",
+    "generalRulesReminder": {
+      "activationTypes": "Permanent = always active, mostly defects. Automatic = triggers under the right conditions without using an action. Activated = costs an action for the round to use, like an attack.",
+      "mentalAttackNote": "Any mutation described as a mental attack uses the attacker's MHAC for that specific mutation (see derivedAttributes.formulas.MHAC in the main datasheet); the target defends with their MD.",
+      "robotRecognitionNote": "Several physical mutations that visibly alter the body (e.g. Multiple limbs, New body parts, Wings, Quills or spines, Oversized limbs, Carapace, Gills) impose an additional -2 Robot Recognition penalty specifically for Altered Humans on top of the genotype's base penalty."
+    }
+  },
+
+  "physicalMutations": {
+    "Achilles heel (D)": {
+      "type": "Physical, Plant", "activation": "Permanent", "mp": "none",
+      "effect": "One specific body location is a critical weak point. A hit there does double damage and the character loses their next action from the pain. A natural attack roll of 20 automatically finds it; a called shot can target it deliberately."
+    },
+    "Air sail": {
+      "type": "Physical, Plant", "activation": "Automatic", "mp": "none",
+      "effect": "Body incorporates a wing/parachute-like membrane allowing gliding. Glides 50% faster than normal movement speed; must lose at least 1m of altitude per 10m of forward travel."
+    },
+    "Allergy (D)": {
+      "type": "Physical, Plant", "activation": "Permanent", "mp": "none",
+      "effect": "Reacts badly to one specific substance (roll d20 for type: pollen, iron, plastic, specific animal, etc). Contact triggers a Health attack (intensity usually 0, GM sets higher for concentrated exposure); a failed check costs the character their action for the round."
+    },
+    "Anti-life leech": {
+      "type": "Physical, Plant", "activation": "Automatic", "mp": "none",
+      "effect": "Immune to Life Leech and similar draining attacks; can reverse the drain, pulling 1d6 points from the attacker into themself (heals damage first, then adds to max HP, capped at CN x 10; the bonus fades after an hour)."
+    },
+    "Attraction odor (D)": {
+      "type": "Physical, Plant", "activation": "Permanent", "mp": "none",
+      "effect": "Strong distinctive scent (musky on animals/humans, sweet/perfumed on plants). Trackable up to 10km by creatures with Heightened Smell; twice as likely to attract predators in the wild."
+    },
+    "Bodily control*": {
+      "type": "Physical, Plant", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Temporarily enhances one sense (as Heightened Sense) or one physical attribute (PS/DX/CN, as Heightened Physical Attribute) for 5+MP rounds. Can only boost a given sense/attribute once every 24 hours."
+    },
+    "Body change (D)": {
+      "type": "Physical", "activation": "Permanent", "mp": "none",
+      "effect": "Cosmetic-only physical alterations with no mechanical benefit or penalty (roll d20 twice on a table of options like odd skin color, extra fingers, antennae, vestigial wings). Altered humans get -2 Robot Recognition."
+    },
+    "Carapace*": {
+      "type": "Physical, Plant", "activation": "Automatic", "mp": "4d6-L, rolled separately",
+      "effect": "Bony/thick-bark shell, partial (50/50 chance, covers head/back, armors against attacks from behind) or total (armors all sides). Base AC = 15 + MP modifier before DX bonus. Altered humans get -2 Robot Recognition."
+    },
+    "Chameleon power*": {
+      "type": "Physical, Plant", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Skin/leaves automatically match the color of any nearby background (clothes/gear do not change color). While active, Remain Unseen increases by 5+MP modifier."
+    },
+    "Chemical susceptibility (D)": {
+      "type": "Physical, Plant", "activation": "Automatic", "mp": "none",
+      "effect": "-5 penalty on Health checks vs. poisons/drugs/toxic chemicals; gets drunk twice as fast as normal from alcohol."
+    },
+    "Density control (self)*": {
+      "type": "Physical, Plant", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Can shrink up to 50%+5%xMP (smaller, faster, AC improves) or grow up to 100%+10%xMP (larger, slower, AC worsens) in size while mass stays constant. Speed changes proportionally with size. AC improves 1 per 10% shrunk, worsens 1 per 20% grown. Immune to the Density Control (Others) mutation."
+    },
+    "Diminished sense (D)": {
+      "type": "Physical", "activation": "Automatic", "mp": "none",
+      "effect": "One sense (d6: sight/hearing/touch/smell/taste) is significantly reduced (e.g. nearsighted beyond 60m, effectively deaf beyond 3-10m). That sense's SN score is reduced by 4; overall Perception takes a -2 penalty."
+    },
+    "Doubled pain (D)": {
+      "type": "Physical, Plant", "activation": "Automatic", "mp": "none",
+      "effect": "Feels twice the normal pain from wounds. Below half HP, suffers -2 on all skills/actions/THAC/AC; -4 specifically on nervous-system or pain-based attacks against them."
+    },
+    "Dual brain": {
+      "type": "Physical, Plant", "activation": "Automatic", "mp": "none",
+      "effect": "Second brain (located anywhere in torso/head, doesn't require a second head) grants 1d3 extra mental mutations and +2 IN. A mental attack can only ever affect one of the two brains at a time (GM picks randomly which)."
+    },
+    "Electrical generation*": {
+      "type": "Physical, Plant", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Builds an internal electrical charge (1d6 per round, max storage 3d6) in a chosen body part. On touch/attack, discharges 1-3d6 electrical damage + MP modifier; can be added to a melee attack if wielding a metal weapon. Character takes half damage from electricity themself."
+    },
+    "Energy absorption*": {
+      "type": "Physical, Plant", "activation": "Automatic", "mp": "4d6-L, rolled separately",
+      "effect": "Ignores the first 10+MP modifier points of damage from one specific energy type (roll d6: radiation/electricity/lasers/heat-fire/cold/player's choice). Immune to physical paralysis from that energy type."
+    },
+    "Energy metamorphosis*": {
+      "type": "Physical, Plant", "activation": "Automatic", "mp": "4d6-L, rolled separately",
+      "effect": "Converts the first 10+MP modifier points of one energy-type damage into self-healing instead. Excess energy with no damage to heal causes an overload (double the remaining damage instead, and can't convert again for 6 rounds)."
+    },
+    "Energy reflection*": {
+      "type": "Physical, Plant", "activation": "Automatic", "mp": "4d6-L, rolled separately",
+      "effect": "Reflects the first 10+MP modifier points of one energy-type attack back outward. A d10 roll on the Scatter Diagram determines the reflected beam's new direction; it must still roll to hit a moving/living target using the original attacker's THAC."
+    },
+    "Energy sensitivity (D)": {
+      "type": "Physical, Plant", "activation": "Automatic", "mp": "none",
+      "effect": "-2 penalty on all skills/actions (THAC, AC, Use Artifacts, Stealth, etc.) within 2 meters of a large energy source (robot, car, active force field); -1 for small powered devices. Health also reduced by 3 vs. energy attacks."
+    },
+    "Fadeout (D)": {
+      "type": "Physical", "activation": "Automatic", "mp": "none",
+      "effect": "5% chance at the start of any combat/high-stress situation of the character's adrenal system misfiring and collapsing unconscious for 1d4+1 rounds."
+    },
+    "Gas generation*": {
+      "type": "Physical, Plant", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Sprays a 2m-diameter gas cloud from a body part (roll d6 for type: stench/blinding/poison/hallucinogenic/paralytic/burning). Attacks target's Health with MP modifier as intensity; effects last 5+MP modifier rounds. Holds up to 3 doses; 3 hours to regenerate one dose. Immune to their own gas type."
+    },
+    "Gills": {
+      "type": "Physical, Plant", "activation": "Automatic", "mp": "none",
+      "effect": "Can breathe underwater (salt or fresh, matching the nearest body of water) as well as air. Altered humans get -1 Robot Recognition."
+    },
+    "Hands of power*": {
+      "type": "Physical", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Hands (or equivalent) can emit energy blasts at range 15m+1m per MP modifier, doing 3d6+MP modifier damage (roll d4 for type: electric/microwave heat/laser/radiation). Only the emitting limb is immune to its own energy type. Stores 5+MP modifier blasts; 8 hours to regenerate one."
+    },
+    "Heightened balance": {
+      "type": "Physical", "activation": "Automatic", "mp": "none",
+      "effect": "Never loses balance from normal circumstances; +4 modifier vs. being knocked down; never slips; can fight normally while off-balance (tightrope, one foot, etc)."
+    },
+    "Heightened physical attribute": {
+      "type": "Physical, Plant", "activation": "Automatic", "mp": "none",
+      "effect": "One of PS/DX/CN (chosen randomly) is dramatically boosted. The increase equals 6 minus the MP modifier of the ORIGINAL score (min +2), so lower original scores get boosted more."
+    },
+    "Heightened precision": {
+      "type": "Physical", "activation": "Automatic", "mp": "none",
+      "effect": "Uncanny aim: +4 modifier to ranged THAC, no range penalties, no called-shot penalties in melee or ranged."
+    },
+    "Heightened sense": {
+      "type": "Physical, Plant", "activation": "Automatic/Permanent (varies)", "mp": "none",
+      "effect": "One sense (d6: sight/hearing/touch/smell/taste, or player's choice on a roll of 6) is significantly enhanced - e.g. telescopic/microscopic vision, ultrasonic hearing, chemical taste-identification. Sight and hearing improve SN score by 3. Multiple rolls stack."
+    },
+    "Heightened speed*": {
+      "type": "Physical", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Permanently adds 5+MP modifier to base speed, plus can burst to +50% speed for up to 6 rounds (1 hour rest to reuse the burst). Only applies to one mode of movement if the character has several (walking/flying/swimming)."
+    },
+    "Horns or antlers": {
+      "type": "Physical", "activation": "Automatic", "mp": "none",
+      "effect": "Head growth up to 20% of character height. Head-butt for 1d6 damage; charging gives +2 THAC and 2d6+2 damage. Altered humans get -2 Robot Recognition."
+    },
+    "Immunity": {
+      "type": "Physical, Plant", "activation": "Automatic", "mp": "none",
+      "effect": "Total immunity to one specific hazard type (roll d8: sonic/mental/gas/paralysis-neural/corrosives-acids/poisons-chemicals/draining-life leech/disease-biological)."
+    },
+    "Infravision": {
+      "type": "Physical, Plant", "activation": "Automatic", "mp": "none",
+      "effect": "Detects heat signatures of living creatures at night as a glowing red shape against a cooler background; no color/fine detail, but shape is visible."
+    },
+    "Kinetic absorption*": {
+      "type": "Physical, Plant", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Generates a field that saps velocity/momentum: bludgeoning attacks do 10+MP modifier less damage, slashing/piercing do 5+MP modifier less (minimum 1 damage still gets through from piercing/slashing). Doesn't affect energy or mental attacks. Lasts 10+1/round per MP modifier rounds, then needs an hour to recharge."
+    },
+    "Metamorphosis*": {
+      "type": "Physical", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "On a successful touch attack against a victim's Health, transforms into an exact physical duplicate of them (gains their PS/DX/CN, THAC, AC, HP, physical mutations/appearance) while keeping own mind, mental attributes, and mental mutations. Form is permanent until the character chooses to fall unconscious/sleep."
+    },
+    "Multiple limbs": {
+      "type": "Physical, Plant", "activation": "Automatic", "mp": "none",
+      "effect": "1d4 extra arms or legs (50/50 which, not both). Extra legs: +2 speed and anti-knockdown/slip bonus each. Extra arms: +2 manual dexterity each (when usable), and can double attacks per round if using near-identical weapons in each hand (max double, regardless of arm count). Altered humans get -2 Robot Recognition."
+    },
+    "New body parts": {
+      "type": "Physical, Plant", "activation": "Automatic", "mp": "none",
+      "effect": "Grows one or more body parts not normal for the species (roll d10: tentacles, trunk, extra eyes, tail, second head, claws/fangs, pincers, extra legs, true hands, pouch). Usable and beneficial by definition. Altered humans get -2 Robot Recognition."
+    },
+    "Night vision": {
+      "type": "Physical", "activation": "Automatic", "mp": "none",
+      "effect": "Sees in low light as well as in full moonlight; on a moonless night, sees as if under a full moon. Daytime/bright-light vision unaffected."
+    },
+    "Nocturnal (D)": {
+      "type": "Physical", "activation": "Automatic", "mp": "none",
+      "effect": "Naturally sleeps by day, active at night; sees by moon/starlight as Night Vision, but suffers as if Diminished Sight (sight) during full daylight."
+    },
+    "Oversized limbs": {
+      "type": "Physical, Plant", "activation": "Automatic", "mp": "none",
+      "effect": "One set of limbs (only one - not two) is 50-100% longer than normal (roll (1d6+4)x10% for exact amount). Longer arms/tentacles = greater reach; longer legs = +5 base speed. Altered humans get -2 Robot Recognition."
+    },
+    "Photodependent (D)": {
+      "type": "Physical, Plant", "activation": "Automatic", "mp": "none",
+      "effect": "Needs regular light exposure to function. An hour in darkness causes -2 to all attributes including THAC/MD; 5 minutes of light restores fully. Takes 1d6 damage per full 24 hours spent in the dark (normal night's sleep is fine). Cannot be sunburned or harmed by normal light; still vulnerable to lasers."
+    },
+    "Photogeneration*": {
+      "type": "Physical, Plant", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Emits a bright flash (10m radius, 20m in the dark) from a chosen body part; treated as a Health attack with intensity = MP modifier, blinding the target. Alternatively, can glow like daylight for 10+MP modifier rounds, illuminating a 10m radius. Stores 3 flashes; 4 hours to regenerate one."
+    },
+    "Photosynthetic skin": {
+      "type": "Physical, Plant", "activation": "Automatic", "mp": "none",
+      "effect": "Doesn't need to eat if given 3+ hours of bright sunlight (6 hours dim) daily while remaining active. 8 full hours of basking heals 3 damage. Takes +50% damage from light-based attacks (e.g. lasers) due to skin sensitivity."
+    },
+    "Poison*": {
+      "type": "Physical, Plant", "activation": "Automatic", "mp": "4d6-L, rolled separately",
+      "effect": "Generates poison delivered via a natural attack (claws, teeth, spit, quills, etc), intensity 5+MP modifier. Stores 3 doses; 3 hours to regenerate one. Immune to own poison; +2 Health modifier vs. other poisons. Poison type (destructive/debilitative/paralytic) chosen randomly."
+    },
+    "Poor dual brain (D)": {
+      "type": "Physical, Plant", "activation": "Automatic", "mp": "none",
+      "effect": "Second brain runs a hostile alternate personality with its own mental mutation (can be a second defect even if the primary brain already has one). 5% chance per stressful situation of the alter-ego seizing control of the body for the stressful period."
+    },
+    "Poor respiration (D)": {
+      "type": "Physical", "activation": "Automatic", "mp": "none",
+      "effect": "Can't hold breath more than 2 rounds. After 6 rounds of strenuous activity, suffers escalating Health attacks (intensity +1 each round of continued exertion). Failing the Health check causes fainting for 2d6+3 rounds. Long tasks take twice as long due to forced rest breaks."
+    },
+    "Quills or spines": {
+      "type": "Physical", "activation": "Automatic", "mp": "none",
+      "effect": "Body covered in porcupine-like quills. Can fire 1d4 per round as darts (1d4 damage each, 5m range). In unarmed combat, does +1d6 damage; grapplers automatically take 1d4+1 quill hits (1d6 each) and any unarmed attacker takes a THAC-0 return attack. Altered humans get -2 Robot Recognition."
+    },
+    "Radiating eyes*": {
+      "type": "Physical", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Projects a radiation beam from the eyes; intensity 5+MP modifier, builds up 1 point/round after firing until back to max. Character's head is immune to their own radiation; +2 Health vs. radiation generally. Can only project through one set of eyes unless rolled multiple times."
+    },
+    "Regeneration*": {
+      "type": "Physical, Plant", "activation": "Automatic", "mp": "4d6-L, rolled separately",
+      "effect": "Heals HP faster than normal (5+MP modifier per day resting, half that while active) and can regrow lost limbs/body parts over time (1 point/day even without rest). Healing rate for regeneration is never worse than normal healing without it."
+    },
+    "Shapechange*": {
+      "type": "Physical, Plant", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Can alter body to match the appearance of any same-size-category creature previously seen (animals/humans imitate animals/humans only; plants imitate plants only). Gains no actual abilities from the mimicked form beyond obvious physical ones (e.g. can fly with imitated wings but can't fire imitated quills). Lasts (5+MP modifier)x10 minutes; 4-hour cooldown after reverting."
+    },
+    "Size change": {
+      "type": "Physical, Plant", "activation": "Automatic", "mp": "none",
+      "effect": "Character becomes 10-60% larger or smaller (roll d6 x10%, 50/50 direction). PS changes +/-1 per 10%; DX changes +/-1 per 10% (increases if smaller). Very large/small sizes may grant AC modifiers at GM's discretion. Base speed unchanged."
+    },
+    "Skeletal enhancement": {
+      "type": "Physical", "activation": "Automatic", "mp": "none",
+      "effect": "Bones far stronger than normal. Immune to broken bones from falls under 100m or impacts under 10 tons; takes half damage from crushing/bashing/falls. +50% damage in unarmed combat."
+    },
+    "Skin structure change (D)": {
+      "type": "Physical", "activation": "Automatic", "mp": "none",
+      "effect": "Roll d4 for specific skin quirk: (1) Albino - 1d4 damage per 10 min in bright sun; (2) Glows faintly at night, not bright enough to be a light source; (3) Water soluble - takes damage from water contact/immersion; (4) Water dependent - takes damage from prolonged dryness, needs regular water contact to avoid it."
+    },
+    "Sonar*": {
+      "type": "Physical, Plant", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Emits high-pitched squeaks (audible only to other sonar-users) to perceive position/size/movement/density of objects within 100m. Cannot talk while actively using sonar. Grants either double-sized ears or antennae (player's choice)."
+    },
+    "Sonic blast*": {
+      "type": "Physical, Plant", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Projects a focused sound cone (10m long, 5m wide at the end) doing 3d6+MP modifier damage; can shatter fragile objects in the area. Usable once per 4 rounds. Character is immune to their own sonic blasts."
+    },
+    "Sound imitation": {
+      "type": "Physical", "activation": "Automatic", "mp": "none",
+      "effect": "Perfectly imitates any sound heard in the last 24 hours, including exact spoken words (works like a tape recorder, not a translator - can't originate new speech). Immune to harmful sound effects; can imitate destructive sounds like Sonic Blast. Cannot imitate itself."
+    },
+    "Transfusion*": {
+      "type": "Physical, Plant", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Heals another character (not self) by touch, 10+MP modifier points per round of contact, but the healer takes 1d4 damage each round used. Once per day per recipient. Plants can only heal plants; people/animals can only heal people/animals."
+    },
+    "Ultravision": {
+      "type": "Physical, Plant", "activation": "Automatic", "mp": "none",
+      "effect": "Sees virtually any energy form: normal night vision via UV, magnetic fields of machines/power cells, heat/cold, mental mutations in action, laser beams, and normally-invisible attacks (though no AC bonus from spotting them). 1-in-6 chance of being blinded 1d4+1 rounds by an energy-based attack faced directly."
+    },
+    "Vocal imitation": {
+      "type": "Physical, Plant", "activation": "Automatic", "mp": "none",
+      "effect": "Imitates any voice/animal noise heard in the last 24 hours, but (unlike Sound Imitation) can freely improvise new words/sounds that could plausibly come from the source. Cannot imitate Sonic Blast; not immune to sonic blasts."
+    },
+    "Wings*": {
+      "type": "Physical", "activation": "Automatic", "mp": "4d6-L, rolled separately",
+      "effect": "True flight. Wing length = character height (feathered or leathery, player's choice). Flying speed = 12+MP modifier. Altered humans and mutated animals get -2 Robot Recognition."
+    }
+  },
+
+  "mentalMutations": {
+    "Beguiling*": {
+      "type": "Mental", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "On a successful mental attack, instills a friendly/soothing attitude in the target (range 25m + 1m per MP modifier). If approached in a friendly manner, attacker gets +5+MP modifier on attitude/reaction rolls. Successfully beguiled creature won't attack the beguiler (but might attack their friends)."
+    },
+    "Confusion*": {
+      "type": "Mental", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "On a successful mental attack (range 25m + 1m per MP modifier), victim rolls d6 each round for 2d6 rounds for a random confused action: stands still, wanders slowly, attacks nearest creature/object, attacks random enemy, or performs an incomprehensible noncombat action."
+    },
+    "Death field generation*": {
+      "type": "Mental", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Attacks all living things within 20m + 1m per MP modifier, draining HP down to CN score (minimum, not zero) unless that alone deals 10+ damage, which drops them to 0 HP. Instantly kills simple life/plants/small animals/germs unaffected. The user takes the same HP loss as if hit by their own attack (tracked separately, heals 1/hour); usable once a week."
+    },
+    "Density control (others)*": {
+      "type": "Mental", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Same effect as Density Control (Self) but targets another creature at range via a successful mental attack; only whole targets can be resized, not parts."
+    },
+    "Devolution*": {
+      "type": "Mental", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "On a successful mental attack, forces the target to lose a mutation (random) or, for Pure Strain Humans, lose a point from a random mental attribute (MS/IN/CH), regressing them physically toward a caveman/ape-like state as it repeats. Lost mutations/attributes regenerate at a rate of one per week."
+    },
+    "Directional sense": {
+      "type": "Mental", "activation": "Automatic", "mp": "none",
+      "effect": "Always knows exactly where they are and how they got there; never gets lost. Doesn't function while asleep/unconscious."
+    },
+    "Displacement*": {
+      "type": "Mental", "activation": "Activated (subconscious - not player-controlled)", "mp": "4d6-L, rolled separately",
+      "effect": "Automatically teleports the character 50m + 10m per MP modifier away (usually back toward where they came from) whenever they believe their life is in immediate danger while incapacitated in a fight - the danger doesn't need to be real. Won't knowingly displace into another lethal situation. Usable once per hour."
+    },
+    "Duality": {
+      "type": "Mental", "activation": "Automatic", "mp": "none",
+      "effect": "Can perform two genuinely different actions simultaneously (e.g. fighting with a weapon while working a lock with the other hand) - one extra action per round using two different weapons/mutations. Automatically ambidextrous."
+    },
+    "Empathy*": {
+      "type": "Mental", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Reads another creature's emotions, or attempts to force an emotion onto them; both require a successful mental attack. Doesn't grant control over the target's actions, only their feelings."
+    },
+    "Fear generation*": {
+      "type": "Mental", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "On a successful mental attack, target flees at top speed for 1 minute (6 rounds); if cornered, fights berserk to escape instead."
+    },
+    "Force field generation*": {
+      "type": "Mental", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Personal energy shield absorbing 25+MP modifier points of damage (physical and energy, including radiation), regenerating 5+MP modifier per round, forms ~0.5m from skin. Character can't attack physically while it's up but can still use mental powers. Lasts 5+MP modifier rounds, then needs an hour's cooldown. Enough overflow damage forces a CN check or unconsciousness."
+    },
+    "Heightened mental attribute": {
+      "type": "Mental", "activation": "Automatic", "mp": "none",
+      "effect": "One of MS/IN/CH (chosen randomly) is dramatically boosted. Increase = 6 minus the MP modifier of the ORIGINAL value (minimum +2), so lower starting scores get a bigger boost."
+    },
+    "Hostility field (D)": {
+      "type": "Mental", "activation": "Automatic", "mp": "none",
+      "effect": "Projects a constant irritability field in a 30m radius. Anyone spending time in it (who hasn't built up a week+ of immunity from prior exposure) suffers -4 on reaction rolls toward the character and tends to dislike them on first meeting."
+    },
+    "Illusion generation*": {
+      "type": "Mental", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Creates a fully sensory illusion that exists only in a successfully mental-attacked victim's mind, built from things the character has actually seen/experienced. Affects everyone (friend or foe) within 30m of the caster; requires a separate mental attack roll per creature. Lasts 5+MP modifier rounds unless disbelief is tested by a hard push/attack, which forces a new attack roll. Usable once every 4 hours."
+    },
+    "Intuition*": {
+      "type": "Mental", "activation": "Automatic", "mp": "4d6-L, rolled separately",
+      "effect": "Rolls a mental attack against all opponents before any encounter begins; successfully-read opponents must announce their intended action to the character before acting, who then chooses their own response. In pure combat with no unusual actions, grants +2 to attack rolls against affected opponents instead, and lets the GM secretly roll to sense ambushes/surprise attacks."
+    },
+    "Levitation*": {
+      "type": "Mental", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Reverses gravity on self or another object/creature, causing it to float at a height the character specifies; no side-to-side control (wind can push it). Can lift 100+20xMP modifier kg. Rises/falls at 1m/second (10m/round). Lasts 5+MP modifier rounds; 1 hour cooldown. Levitated target/subject must stay within 30m of the levitator."
+    },
+    "Life leech*": {
+      "type": "Mental", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Drains 5+MP modifier HP per round from all qualifying creatures (over ~0.5m size) within 10m, for up to 5+MP modifier rounds, then requires 24 hours rest. Drained HP first heals the user, then overflows into a temporary bonus HP pool (cap MP x10) that fades at 5+MP modifier/round after 4 hours."
+    },
+    "Magnetic control*": {
+      "type": "Mental", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Creates/moves a magnetic field within 30m that pulls iron/steel objects toward it (speed depends on object weight). Can lift 50+10xMP modifier kg one meter off the ground, halved per extra meter of distance. Against machinery, attacks physical AC for 3d6+MP modifier damage if placed inside it."
+    },
+    "Mass mind*": {
+      "type": "Mental", "activation": "Activated", "mp": "none - boosts another character's existing power score",
+      "effect": "By touching another character and concentrating, channels energy to temporarily add 5+MP modifier to that character's OWN mutation power score for one use of one of their mental mutations. Multiple touching characters can pool their contributions (5 points each) into one recipient's boost. Contributors can't act otherwise while channeling."
+    },
+    "Mental blast*": {
+      "type": "Mental", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Direct mental attack (using MHAC for this power) against any creature with at least animal-level intelligence; on success does 3d6+MP modifier damage straight to HP, just like a physical attack. Builds up 1d6 damage capacity per round like Electrical Generation."
+    },
+    "Mental control*": {
+      "type": "Mental", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Takes control of another creature's body at range 15m + MP modifier via successful mental attack; caster's own body lies unconscious meanwhile. Doesn't automatically know the host's abilities unless obviously visible from its form; can 'attack' the body again with Mental Control to learn one more of its random hidden abilities. Can return to own body anytime, forced back after 5+MP modifier rounds; dies if own body is destroyed while away. 4-hour cooldown after use. Plants can only control plants; humans/animals control each other only."
+    },
+    "Mental invisibility*": {
+      "type": "Mental", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Forces all creatures within range (25m + 1m per MP modifier) to not notice the character via one mental attack roll compared against each creature's MD. Successfully-affected creatures can't sense the character at all; newcomers get compared against the same roll (with a +4 MD bonus if they already sensed the character before). A melee attack by the invisible character reveals them but the first swing is a free attack."
+    },
+    "Mental multiplier*": {
+      "type": "Mental", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "At range (25m + 1m per MP modifier), adds 5+MP modifier to another single character's mutation power score for one of their mutations, OR doubles that mutation's area-of-effect range instead (not both; doesn't work on non-area mutations for the range option)."
+    },
+    "Mental paralysis*": {
+      "type": "Mental", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "On a successful mental attack, isolates the victim's mind from voluntary motor control - can't move, speak, or act, though they still breathe/blink/sense normally. Must be re-attacked each round to maintain the paralysis."
+    },
+    "Mental reflection*": {
+      "type": "Mental", "activation": "Automatic", "mp": "4d6-L, rolled separately",
+      "effect": "Whenever successfully mentally attacked, automatically rolls a counterattack; if the counter's die roll beats the attacker's (modifiers ignored for both), the attack reflects back onto the original attacker if the counter would also have succeeded against them."
+    },
+    "Mentally defenseless (D)": {
+      "type": "Mental", "activation": "Automatic", "mp": "none",
+      "effect": "Character's Mental Strength is fixed at 3, regardless of what was rolled (severe vulnerability to mental attacks via a very low MD)."
+    },
+    "Molecular disruption*": {
+      "type": "Mental", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Disintegrates non-living objects up to (5+MP modifier)x10 kg, based on the material's assigned AC (cloth=10 through hard metal=30). Against a living creature, does 1d8 damage per 10kg destroyed. Extremely taxing: forces 4 hours of rest afterward (no walking/fighting/mutations, can only talk while sitting/reclining)."
+    },
+    "Periodic amnesia (D)": {
+      "type": "Mental", "activation": "Automatic", "mp": "none",
+      "effect": "In stressful moments (start of combat), 5% chance of forgetting the last 24 hours, resulting in one round of confusion (still defends against obvious aggression). Also a small chance in calm situations of forgetting minor recent things. Other characters can 'reinform' the forgotten memories; Espers can fully restore them via Hypnosis."
+    },
+    "Phobia (D)": {
+      "type": "Mental", "activation": "Automatic", "mp": "none",
+      "effect": "Unreasoning fear of a specific thing (roll d20: open spaces, heights, particular animal, crowds, machines/robots, etc). Confronting it requires a Mental Strength check (difficulty 5) or the character flees/panics; can't fight the object of the phobia if the check fails."
+    },
+    "Photokinesis*": {
+      "type": "Mental", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Bends/redirects light: can render self invisible by bending light around the body (anyone within 1m still sees normally), or alter/negate an incoming light-based attack (change a laser's wavelength up/down the spectrum, changing its damage type, or 'put it out' entirely)."
+    },
+    "Plant/animal control*": {
+      "type": "Mental", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Functions exactly like Mental Control, but works on plants if the caster is human/animal, and on humans/animals if the caster is a plant. Does not work on creatures sharing the caster's own genotype-family mind pattern."
+    },
+    "Psychometry*": {
+      "type": "Mental", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Reads the emotionally-charged past of an item by touch, once per object per day. Rolls d20 + MHAC vs. a Last-Used table (higher roll = further back in time readable, from 1 hour up to decades)."
+    },
+    "Pyro/cryokinesis*": {
+      "type": "Mental", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Heats (pyrokinesis) or cools (cryokinesis) a 2m-diameter area or object within 25m + 5m per MP modifier; roll d6 (1-3 heat, 4-5 cold, 6 both/either). Damage escalates 1d6 per round of continued concentration up to a 10d6 cap. Lasts 5+MP modifier rounds of concentration, then 3-hour cooldown. User takes half damage (rounded up) from heat/cold attacks generally (not lasers)."
+    },
+    "Repulsion field*": {
+      "type": "Mental", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Invisible force wall (3m diameter sphere) placeable anywhere within 25m+5m per MP modifier of self, blocking only physical attacks (not the caster's own location). Absorbs 25+MP modifier damage, regenerates 5+MP modifier/round, lasts 5+MP modifier rounds, then 3-hour cooldown. Requires constant concentration to maintain/move; destroyed by enough damage forces a CN check (easy) or unconsciousness."
+    },
+    "Seizures (D)": {
+      "type": "Mental", "activation": "Automatic", "mp": "none",
+      "effect": "5% chance in any stressful situation of an uncontrollable full-body seizure, falling to the ground for 2d6 rounds with no memory of what happened during it."
+    },
+    "Stunning force*": {
+      "type": "Mental", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Mental shout stunning everyone (friend and foe) within 25m + 5m per MP modifier point for 1d6 rounds each (rolled separately per victim); stunned creatures can't attack, defend, move, or use mutations. 4-hour cooldown after use."
+    },
+    "Summoning*": {
+      "type": "Mental", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Telepathic call to a specific creature species the character has a clear mental image of. On the creature's arrival and eye contact, an attack roll determines control for 2d6 rounds (otherwise it acts freely, possibly hostile). Simple commands only ('kill them,' 'carry us'). Low-Intelligence (5-) or higher creatures can resist the call; once summoned and released, that individual is immune to being summoned again for a year."
+    },
+    "Symbiotic attachment*": {
+      "type": "Mental", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "On a successful touch + mental attack, takes full control of the victim (an extension of the caster's own body) until voluntarily released; caster can do nothing else while attached and doesn't know the host's hidden knowledge/abilities. If host dies while attached, caster is stunned 1d6 minutes."
+    },
+    "Telekinesis*": {
+      "type": "Mental", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Moves objects at range (25m + 5m per MP modifier) with the mind; effective lifting PS equals the MP score. Can lift/carry/move/throw/rotate only - no fine manipulation (can't operate machinery or wield a weapon, except as a thrown improvised object). Lifting a creature or manipulating a held object requires a mental attack against physical AC."
+    },
+    "Telekinetic hand*": {
+      "type": "Mental", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Like Telekinesis but with fine manipulation capability (the 'hand's' effective DX = MP score, PS = 5 for lifting purposes) at range 25m + 5m per MP modifier. Can use weapons, though low PS causes damage penalties."
+    },
+    "Telekinetic flight*": {
+      "type": "Mental", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Lifts only self via telekinesis, flying at up to 5+MP modifier m/round. Using it is as tiring as running at the equivalent pace (fatigue rules apply at max speed; slow/sedate flight is nearly free). Can carry 50+10xMP modifier kg of extra weight."
+    },
+    "Telepathy*": {
+      "type": "Mental", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Reads/sends thoughts. Reading a hostile mind needs a mental attack (range 100m + 10m per MP modifier, doubled if the target cooperates). Willing telepathic exchange works up to 5+MP modifier km. Can scan an area (5+MP modifier km) for minds of Intelligence 5+, rolling per creature detected to sense (not read) their presence."
+    },
+    "Teleport object*": {
+      "type": "Mental", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Teleports a visible object up to 50+(10xMP modifier) meters away, weight limit = MP score in kg. If held by another creature, requires a mental attack against their physical AC. Destination must be within the same range. Once per hour."
+    },
+    "Teleportation*": {
+      "type": "Mental", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Self-teleport, usable once per 3 hours. Short hops: destination must be visible and within 50+(10xMP modifier) meters. Long jumps: can memorize a location (hours of prior study) up to 5+MP modifier km away, holding up to (IN modifier + 1, min 1) memorized locations at once, for a month each. Teleporting to an under-memorized location risks 1d6 damage per hour short of the full 8-hour study requirement."
+    },
+    "Thought imitation": {
+      "type": "Mental", "activation": "Automatic", "mp": "none",
+      "effect": "Can play back and rebroadcast (imitate) any mental attack/ability personally experienced in the last 24 hours, using the original attacker's roll and mutation score, including bouncing a Mental Blast back at its sender. Cannot imitate self."
+    },
+    "Total healing*": {
+      "type": "Mental", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Accelerates own healing: recovers 5+MP modifier HP per hour of active concentration (in addition to normal healing), or halts/reverses poison, disease, or radiation by successfully 'attacking' the condition's intensity with this power once per hour of concentration."
+    },
+    "Will force*": {
+      "type": "Mental", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Temporarily boosts one own mental mutation's power score or one mental attribute (IN/MS/CH) by 5+MP modifier, lasting 5+MP modifier rounds. Usable once every 4 hours."
+    }
+  },
+
+  "plantOnlyMutations": {
+    "_note": "These appear only on the plantMutationsTable (physical-type rolls for Sentient Plants) and aren't shared with the standard Physical Mutations table.",
+    "Adaptation": {
+      "type": "Plant", "activation": "Automatic", "mp": "none",
+      "effect": "Can become immune to a physical attack form that has damaged it, by choosing to begin adapting on the round it's hit. Takes 5 days to complete adaptation; can hold up to 3 adaptations at once, dropping an old one to add a new one. Attack types are divided into cutting/piercing/bludgeoning (gunshots count as piercing) and must be adapted to individually."
+    },
+    "Allurement*": {
+      "type": "Plant", "activation": "Automatic", "mp": "4d6-L, rolled separately",
+      "effect": "Constant seductive fragrance affecting animal-Intelligence-1-or-lower creatures within 15m; effectively raises the plant's CH by 5+MP modifier for this purpose. Success (target defends with MD) compels the creature to approach and stay near the plant. Breaks if the victim takes damage; a creature that resists once is permanently immune to that plant's allurement."
+    },
+    "Carnivorous jaws*": {
+      "type": "Plant", "activation": "Automatic", "mp": "4d6-L, rolled separately",
+      "effect": "Thorn-lined maw lets the plant eat meat/other plants (most plants can't). Bite does 1d6+MP modifier damage."
+    },
+    "Contact poison sap*": {
+      "type": "Plant", "activation": "Automatic", "mp": "4d6-L, rolled separately",
+      "effect": "Any wound to the plant oozes poisonous sap (intensity = MP score) on contact with skin. Good for coating weapons, but hardens to harmless resin within an hour. Requires a 2+ point wound to coat a dagger, 5+ points for a sword."
+    },
+    "Dissolving juices*": {
+      "type": "Plant", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Secretes acid doing 3d6+MP modifier damage over a 1-minute (6-round) exposure; briefer contact (1 round) does 2 points. Usable once every 4 hours; unused acid becomes inert after a minute."
+    },
+    "Explosive seeds*": {
+      "type": "Plant", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Grows nut-like seeds (up to 5+MP modifier at a time, 1 month to grow each, lasts 3 months on the plant) that explode for 2d6+MP modifier damage in a 0.5m radius if hurled onto a hard surface or exposed to fire/crushing (20% ignition chance per seed from fire/impact)."
+    },
+    "Finger vines*": {
+      "type": "Plant", "activation": "Automatic", "mp": "4d6-L, rolled separately",
+      "effect": "1d4 extra vine-limbs (5+MP modifier meters long, PS 1 each, DX 5+MP modifier, combine PS/DX if used together) capable of grasping and fine manipulation (buttons, instruments) at a slow 2m/round. Can detach and operate remotely up to 10m+1m per MP modifier away, or by touch alone if out of sight. Wither and die if not rejoined to the body within an hour; regrow in a week."
+    },
+    "Fruit*": {
+      "type": "Plant", "activation": "Automatic", "mp": "4d6-L, rolled separately",
+      "effect": "Grows berries/fruit (up to 5+MP modifier at a time, 1 month to grow, stays fresh a month) with a randomized effect (roll d8: sustenance, poison [intensity=MP], poison antidote, antibiotic heal, stimulant, radiation antidote, pain killer, or imitation of another chemical/poison). Plant characters can't benefit from eating their own fruit."
+    },
+    "Gas bags*": {
+      "type": "Plant", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Inflatable helium bladder lets the plant float away; carries 5kg per point of MP. Takes a full minute to inflate; rises 1m/round at max inflation, controllable by venting/synthesizing helium, but direction is at the mercy of prevailing winds."
+    },
+    "Poisonous thorns*": {
+      "type": "Plant", "activation": "Automatic", "mp": "4d6-L, rolled separately",
+      "effect": "Body thorns coated in poisonous dew (intensity 5+MP modifier); anyone in strong contact (striking/wrestling) is scratched and poisoned. Penetrates clothing but not leather/heavy fur. Dew dries to harmless after half an hour."
+    },
+    "Projectile seeds*": {
+      "type": "Plant", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "5+MP modifier pointed seed pods (pressurized gas launchers) fired up to 10m with no range penalty, penetrating soft materials (not stone/metal). Does 1d6+MP modifier damage per hit; regrows a used seed in a week."
+    },
+    "Razor edged leaves": {
+      "type": "Plant", "activation": "Automatic", "mp": "none",
+      "effect": "Serrated leaves look harmless but cut. Anyone wrestling/grappling the plant takes 2d6 damage per round from the leaves; the plant's own limb attacks do +1d6 damage from the leaves; unprotected strikes against the plant deal 1d6 damage back to the attacker."
+    },
+    "Spore cloud*": {
+      "type": "Plant", "activation": "Activated", "mp": "4d6-L, rolled separately",
+      "effect": "Fires spore sacks (up to 5+MP modifier total, 1 month to regrow each) that burst on activation into a 3m-diameter cloud. Doesn't harm directly but makes breathing difficult - anyone in the cloud takes a Health attack (intensity = MP modifier); on a failed check, victim can only move at half speed and can't attack or act otherwise until clear of the spores."
+    },
+    "Squeeze vines*": {
+      "type": "Plant", "activation": "Automatic", "mp": "4d6-L, rolled separately",
+      "effect": "In addition to any other limbs, grows 1d4 constricting vines (5+MP modifier meters long, PS 5+MP modifier each, combine if multiple grab the same target, move at a slow 1m/round). Once a target is grabbed, constricts for 1 damage per full 5 points of vine PS each round."
+    },
+    "Thorns or spikes": {
+      "type": "Plant", "activation": "Automatic", "mp": "4d6-L, rolled separately",
+      "effect": "Body covered in defensive thorns. Anyone wrestling the plant takes 2d6+MP modifier damage from them; thorns add 1d6+MP modifier to the plant's own limb attacks. Doesn't damage hard materials like stone/metal. Anyone striking the plant unarmed/unprotected takes 1d6+MP modifier damage back."
+    }
+  }
+}

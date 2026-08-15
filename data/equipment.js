@@ -1,0 +1,2398 @@
+// Auto-generated from gw4e_equipment.json — do not hand-edit; regenerate from source JSON.
+(function (root) {
+  root.GW4E_EQUIPMENT = {
+  "_meta": {
+    "source": "TSR 07514 - Gamma World, 4th Edition (1992 boxed set rulebook), Chapter 6: Equipment, pp. 78-96",
+    "purpose": "Structured equipment/loot data: the Loot Table mechanism (used for the Examiner class's starting Tech IV item, and for GM-awarded loot generally), Common Equipment/Weapons/Armor price-and-stat tables for domars-based starting gear, and the full Tech III-VI Artifact tables with their Armor & Weapons sub-tables so a specific rolled item resolves to real stats.",
+    "pagesCovered": "pp. 78 (Loot intro) - 96 (Futuristic Weapons & Armor intro). Skips the flavor-only Junk/Baubles/Curiosities item lists (pp.80-81) and the individual prose descriptions of each named artifact (pp.85-96 running text) in favor of the stat tables, which is what a character generator needs.",
+    "stillToExtract": [
+      "Individual artifact prose descriptions (what each Tech IV-VI item actually DOES mechanically beyond its combat stats) - pp. 85-96 running text, plus Sights & Scopes and Grenades/Missiles/Micromissiles/Smart Darts detail sections (p.107) - only pulled the summary stat tables so far",
+      "Vehicles chapter (pp. 113+) - referenced by 'Bicycle (see Vehicles, page 113)' on the Tech IV Artifacts table but not extracted",
+      "Cryptic Alliances chapter (pp. 127-139) - still the one remaining chargen gap"
+    ]
+  },
+  "lootMechanism": {
+    "description": "How loot (money + artifacts) is generated for an encounter or, per Character Generation rules, for an Examiner's starting Tech IV item.",
+    "process": [
+      "1. Determine the Loot Type (A-O for group/shared loot found on an encounter as a whole; U-Z for loot carried by an individual creature/NPC).",
+      "2. Each loot category (Domars, Junk, Baubles, Curiosities, Artifacts by Tech Level III/IV/V/VI) listed for that Loot Type has a 75% chance of actually being present.",
+      "3. If present, roll the listed dice/quantity for how many of that category are found.",
+      "4. For each artifact indicated, roll on the matching Tech Level Artifacts table (III/IV/V/VI) to determine which specific item it is.",
+      "5. Artifacts that use power cells have a 50% chance of being found already equipped with one. Guns have a 50% chance of being found with 2d6 rounds of appropriate ammunition."
+    ],
+    "examinerUsage": "The Examiner class starts the game with a Tech IV item. Roll once on the Tech IV Artifacts table (d20) to determine it; a result of 15-20 sends you to the Tech IV Armor & Weapons sub-table for a specific weapon/armor item instead of a general artifact.",
+    "lootTable": {
+      "columns": [
+        "lootType",
+        "domars",
+        "junk",
+        "baubles",
+        "curiosities",
+        "artifactsTechIII",
+        "artifactsTechIV",
+        "artifactsTechV",
+        "artifactsTechVI"
+      ],
+      "note": "'-' means that category does not apply for this loot type. All present categories have a 75% chance of actually appearing.",
+      "rows": [
+        {
+          "lootType": "A",
+          "domars": "1d10x10",
+          "junk": "1d4",
+          "baubles": "-",
+          "curiosities": "-",
+          "artifactsTechIII": "1",
+          "artifactsTechIV": "-",
+          "artifactsTechV": "-",
+          "artifactsTechVI": "-"
+        },
+        {
+          "lootType": "B",
+          "domars": "1d10x100",
+          "junk": "1d10",
+          "baubles": "1d6",
+          "curiosities": "-",
+          "artifactsTechIII": "1-2",
+          "artifactsTechIV": "1",
+          "artifactsTechV": "-",
+          "artifactsTechVI": "-"
+        },
+        {
+          "lootType": "C",
+          "domars": "-",
+          "junk": "2d10",
+          "baubles": "2d8",
+          "curiosities": "2d6",
+          "artifactsTechIII": "-",
+          "artifactsTechIV": "-",
+          "artifactsTechV": "-",
+          "artifactsTechVI": "-"
+        },
+        {
+          "lootType": "D",
+          "domars": "-",
+          "junk": "1d6",
+          "baubles": "2d10",
+          "curiosities": "1d8",
+          "artifactsTechIII": "1-2",
+          "artifactsTechIV": "1d4",
+          "artifactsTechV": "-",
+          "artifactsTechVI": "-"
+        },
+        {
+          "lootType": "E",
+          "domars": "-",
+          "junk": "-",
+          "baubles": "1d6",
+          "curiosities": "2d10",
+          "artifactsTechIII": "1d4",
+          "artifactsTechIV": "1d4",
+          "artifactsTechV": "-",
+          "artifactsTechVI": "-"
+        },
+        {
+          "lootType": "F",
+          "domars": "-",
+          "junk": "-",
+          "baubles": "1d4",
+          "curiosities": "2d10",
+          "artifactsTechIII": "1d4",
+          "artifactsTechIV": "1d4",
+          "artifactsTechV": "-",
+          "artifactsTechVI": "-"
+        },
+        {
+          "lootType": "G",
+          "domars": "-",
+          "junk": "-",
+          "baubles": "1-2",
+          "curiosities": "2d10",
+          "artifactsTechIII": "1-2",
+          "artifactsTechIV": "1d4",
+          "artifactsTechV": "1-2",
+          "artifactsTechVI": "-"
+        },
+        {
+          "lootType": "H",
+          "domars": "-",
+          "junk": "-",
+          "baubles": "-",
+          "curiosities": "2d6",
+          "artifactsTechIII": "1d6",
+          "artifactsTechIV": "1d4",
+          "artifactsTechV": "1-2",
+          "artifactsTechVI": "-"
+        },
+        {
+          "lootType": "I",
+          "domars": "-",
+          "junk": "-",
+          "baubles": "-",
+          "curiosities": "1d4",
+          "artifactsTechIII": "2d6",
+          "artifactsTechIV": "1d8",
+          "artifactsTechV": "1d4",
+          "artifactsTechVI": "1-2"
+        },
+        {
+          "lootType": "J",
+          "domars": "-",
+          "junk": "-",
+          "baubles": "-",
+          "curiosities": "1d4",
+          "artifactsTechIII": "1d8",
+          "artifactsTechIV": "2d6",
+          "artifactsTechV": "1d6",
+          "artifactsTechVI": "1d4"
+        },
+        {
+          "lootType": "K",
+          "domars": "-",
+          "junk": "-",
+          "baubles": "-",
+          "curiosities": "1d4",
+          "artifactsTechIII": "1d4",
+          "artifactsTechIV": "1d8",
+          "artifactsTechV": "2d6",
+          "artifactsTechVI": "1d6"
+        },
+        {
+          "lootType": "L",
+          "domars": "-",
+          "junk": "1d6",
+          "baubles": "1d6",
+          "curiosities": "1d6",
+          "artifactsTechIII": "1d4",
+          "artifactsTechIV": "1d4",
+          "artifactsTechV": "1-2",
+          "artifactsTechVI": "-"
+        },
+        {
+          "lootType": "M",
+          "domars": "-",
+          "junk": "1d10x10",
+          "baubles": "1d8x10",
+          "curiosities": "1d6x10",
+          "artifactsTechIII": "2d8",
+          "artifactsTechIV": "1d6",
+          "artifactsTechV": "1-2",
+          "artifactsTechVI": "-"
+        },
+        {
+          "lootType": "N",
+          "domars": "1d10x100",
+          "junk": "1d4x10",
+          "baubles": "1d6x10",
+          "curiosities": "1d10x10",
+          "artifactsTechIII": "1d8",
+          "artifactsTechIV": "1d10",
+          "artifactsTechV": "2d8",
+          "artifactsTechVI": "2d6"
+        },
+        {
+          "lootType": "O",
+          "domars": "1d10x10",
+          "junk": "2d10",
+          "baubles": "2d10",
+          "curiosities": "2d10",
+          "artifactsTechIII": "1d4",
+          "artifactsTechIV": "1d4",
+          "artifactsTechV": "1d4",
+          "artifactsTechVI": "1d4"
+        },
+        {
+          "lootType": "U (individual)",
+          "domars": "-",
+          "junk": "1d4",
+          "baubles": "1d4",
+          "curiosities": "1d4",
+          "artifactsTechIII": "-",
+          "artifactsTechIV": "-",
+          "artifactsTechV": "-",
+          "artifactsTechVI": "-"
+        },
+        {
+          "lootType": "V (individual)",
+          "domars": "1d4",
+          "junk": "1-2",
+          "baubles": "1-2",
+          "curiosities": "1-2",
+          "artifactsTechIII": "1-2",
+          "artifactsTechIV": "1-2",
+          "artifactsTechV": "1-2",
+          "artifactsTechVI": "1-2"
+        },
+        {
+          "lootType": "W (individual)",
+          "domars": "1d10x10",
+          "junk": "-",
+          "baubles": "-",
+          "curiosities": "-",
+          "artifactsTechIII": "1-2",
+          "artifactsTechIV": "1-2",
+          "artifactsTechV": "-",
+          "artifactsTechVI": "-"
+        },
+        {
+          "lootType": "X (individual)",
+          "domars": "1d6x10",
+          "junk": "-",
+          "baubles": "-",
+          "curiosities": "1d4",
+          "artifactsTechIII": "-",
+          "artifactsTechIV": "-",
+          "artifactsTechV": "-",
+          "artifactsTechVI": "-"
+        },
+        {
+          "lootType": "Y (individual)",
+          "domars": "2d8",
+          "junk": "-",
+          "baubles": "1d4",
+          "curiosities": "-",
+          "artifactsTechIII": "-",
+          "artifactsTechIV": "-",
+          "artifactsTechV": "-",
+          "artifactsTechVI": "-"
+        },
+        {
+          "lootType": "Z (individual)",
+          "domars": "1d6",
+          "junk": "1d4",
+          "baubles": "-",
+          "curiosities": "-",
+          "artifactsTechIII": "-",
+          "artifactsTechIV": "-",
+          "artifactsTechV": "-",
+          "artifactsTechVI": "-"
+        }
+      ]
+    },
+    "junkBaublesCuriositiesValue": {
+      "description": "If the GM doesn't want to roll individual junk/baubles/curiosities items, flat sale values apply instead.",
+      "junk": {
+        "complexity": 4,
+        "individualSaleValue": "1d10 domars (or flat 5 domars each if not rolling individually)"
+      },
+      "baubles": {
+        "complexity": 7,
+        "individualSaleValue": "4d10 domars (or flat 20 domars each if not rolling individually)"
+      },
+      "curiosities": {
+        "complexity": 10,
+        "individualSaleValue": "2d10x10 domars (or flat 100 domars each if not rolling individually)"
+      }
+    },
+    "artifactConditionOnDiscovery": {
+      "description": "d20 roll for the condition of a found artifact when the GM has no predetermined idea of its state.",
+      "columns": [
+        "d20Roll",
+        "repairDifficulty",
+        "artifactCondition"
+      ],
+      "rows": [
+        {
+          "d20Roll": "1-10",
+          "repairDifficulty": "N/A",
+          "artifactCondition": "Operational"
+        },
+        {
+          "d20Roll": "11-14",
+          "repairDifficulty": 0,
+          "artifactCondition": "Minor repair necessary"
+        },
+        {
+          "d20Roll": "15-17",
+          "repairDifficulty": 5,
+          "artifactCondition": "Significant repair necessary"
+        },
+        {
+          "d20Roll": "18-19",
+          "repairDifficulty": 10,
+          "artifactCondition": "Major repair necessary"
+        },
+        {
+          "d20Roll": "20",
+          "repairDifficulty": 15,
+          "artifactCondition": "Vital components are missing"
+        }
+      ],
+      "usageNote": "This matches (and is the source of) the Examiner's Repair Artifact skill difficulty table already in gw4e_character_generation.json's characterClasses.examiner.repairDifficultyTables."
+    }
+  },
+  "techLevelArtifactTables": {
+    "techIII": {
+      "diceType": "d20",
+      "note": "Roll for a general Tech III item. These are pre-gunpowder-to-Renaissance-equivalent items, not 'artifacts' in the futuristic sense - listed here because Loot Type tables reference this roll.",
+      "entries": [
+        {
+          "roll": 1,
+          "item": "Hourglass"
+        },
+        {
+          "roll": 2,
+          "item": "Lantern"
+        },
+        {
+          "roll": 3,
+          "item": "Lute"
+        },
+        {
+          "roll": 4,
+          "item": "Poison, 1 dose (intensity 2d6)"
+        },
+        {
+          "roll": 5,
+          "item": "Rations (1 week)"
+        },
+        {
+          "roll": 6,
+          "item": "Sextant"
+        },
+        {
+          "roll": 7,
+          "item": "Spyglass"
+        },
+        {
+          "roll": 8,
+          "item": "Tool"
+        },
+        {
+          "roll": 9,
+          "item": "Compass"
+        },
+        {
+          "roll": 10,
+          "item": "Matchsticks and tinder"
+        },
+        {
+          "roll": 11,
+          "item": "Arquebus"
+        },
+        {
+          "roll": 12,
+          "item": "Flintlock pistol"
+        },
+        {
+          "roll": 13,
+          "item": "Flintlock rifle"
+        },
+        {
+          "roll": 14,
+          "item": "24 musket balls & gunpowder"
+        },
+        {
+          "roll": 15,
+          "item": "Fuse cord, 5m"
+        },
+        {
+          "roll": 16,
+          "item": "1d6 flasks of oil"
+        },
+        {
+          "roll": 17,
+          "item": "Rope, hemp, 20m"
+        },
+        {
+          "roll": 18,
+          "item": "Melee weapon (<= Tech III) - pick from Common Melee Weapons table"
+        },
+        {
+          "roll": 19,
+          "item": "Ranged weapon (<= Tech III) - pick from Common Ranged Weapons table"
+        },
+        {
+          "roll": 20,
+          "item": "Armor (<= Tech III) - pick from Common Armor table"
+        }
+      ]
+    },
+    "techIV": {
+      "diceType": "d20",
+      "entries": [
+        {
+          "roll": 1,
+          "item": "Bicycle (see Vehicles chapter, not yet extracted)"
+        },
+        {
+          "roll": 2,
+          "item": "Binoculars"
+        },
+        {
+          "roll": 3,
+          "item": "Fire extinguisher"
+        },
+        {
+          "roll": 4,
+          "item": "Flashlight"
+        },
+        {
+          "roll": 5,
+          "item": "Gas mask"
+        },
+        {
+          "roll": 6,
+          "item": "Geiger counter"
+        },
+        {
+          "roll": 7,
+          "item": "IR goggles"
+        },
+        {
+          "roll": 8,
+          "item": "Parachute"
+        },
+        {
+          "roll": 9,
+          "item": "1d8 power cells, chemical"
+        },
+        {
+          "roll": 10,
+          "item": "Rad badge"
+        },
+        {
+          "roll": 11,
+          "item": "Radio, ham"
+        },
+        {
+          "roll": 12,
+          "item": "Radio, listen only"
+        },
+        {
+          "roll": 13,
+          "item": "Tool set"
+        },
+        {
+          "roll": 14,
+          "item": "Voltmeter"
+        },
+        {
+          "roll": "15-20",
+          "item": "Roll on Tech IV Armor & Weapons table"
+        }
+      ],
+      "armorAndWeaponsSubtable": {
+        "diceType": "d20",
+        "entries": [
+          {
+            "roll": 1,
+            "item": "Assault rifle or machine pistol (50/50 chance)"
+          },
+          {
+            "roll": 2,
+            "item": "Flame thrower"
+          },
+          {
+            "roll": 3,
+            "item": "Gatling gun"
+          },
+          {
+            "roll": 4,
+            "item": "Grenade launcher"
+          },
+          {
+            "roll": 5,
+            "item": "1d6 grenades (roll type on Warheads/Grenades/Guidance table)"
+          },
+          {
+            "roll": 6,
+            "item": "Machine gun"
+          },
+          {
+            "roll": 7,
+            "item": "Revolver"
+          },
+          {
+            "roll": 8,
+            "item": "Rifle, bolt-action"
+          },
+          {
+            "roll": 9,
+            "item": "Shotgun, buckshot"
+          },
+          {
+            "roll": 10,
+            "item": "Sniper rifle"
+          },
+          {
+            "roll": 11,
+            "item": "Taser"
+          },
+          {
+            "roll": 12,
+            "item": "Fireman's suit, hazmat suit (50/50 chance)"
+          },
+          {
+            "roll": 13,
+            "item": "Missile (precursor to micromissile - has launcher, warhead, guidance system; roll type on Warheads/Grenades/Guidance table)"
+          },
+          {
+            "roll": 14,
+            "item": "Bulletproof vest"
+          },
+          {
+            "roll": 15,
+            "item": "Radiation suit"
+          },
+          {
+            "roll": 16,
+            "item": "Riot shield"
+          },
+          {
+            "roll": 17,
+            "item": "Sports gear (1d6 for AC bonus)"
+          },
+          {
+            "roll": 18,
+            "item": "Scope, telescopic or IR (50/50 chance); roll 1d3 for x2/x5/x10 power"
+          },
+          {
+            "roll": "19-20",
+            "item": "2d20 rounds of ammo"
+          }
+        ]
+      }
+    },
+    "techV": {
+      "diceType": "d20",
+      "entries": [
+        {
+          "roll": "1-2",
+          "item": "Communicator"
+        },
+        {
+          "roll": 3,
+          "item": "Glow cube"
+        },
+        {
+          "roll": 4,
+          "item": "Energy cloak"
+        },
+        {
+          "roll": 5,
+          "item": "Envirolyzer"
+        },
+        {
+          "roll": 6,
+          "item": "I.D. card"
+        },
+        {
+          "roll": 7,
+          "item": "Lamprey disk"
+        },
+        {
+          "roll": 8,
+          "item": "Lexicon, computer"
+        },
+        {
+          "roll": 9,
+          "item": "Medikit"
+        },
+        {
+          "roll": 10,
+          "item": "Motion detector"
+        },
+        {
+          "roll": 11,
+          "item": "Power cell, hydrogen"
+        },
+        {
+          "roll": 12,
+          "item": "Power cell, solar"
+        },
+        {
+          "roll": 13,
+          "item": "Solar charger"
+        },
+        {
+          "roll": 14,
+          "item": "Tool set"
+        },
+        {
+          "roll": "15-20",
+          "item": "Roll on Tech V Armor & Weapons table"
+        }
+      ],
+      "armorAndWeaponsSubtable": {
+        "diceType": "d20",
+        "entries": [
+          {
+            "roll": 1,
+            "item": "Blaster, Mark V"
+          },
+          {
+            "roll": 2,
+            "item": "Drone weaver"
+          },
+          {
+            "roll": 3,
+            "item": "Energy mace"
+          },
+          {
+            "roll": 4,
+            "item": "Force field generator"
+          },
+          {
+            "roll": 5,
+            "item": "Flying blades"
+          },
+          {
+            "roll": 6,
+            "item": "1d6 grenades (roll type on Warheads/Grenades/Guidance table)"
+          },
+          {
+            "roll": 7,
+            "item": "Hazmat suit"
+          },
+          {
+            "roll": 8,
+            "item": "Laser pistol, IR"
+          },
+          {
+            "roll": 9,
+            "item": "Laser rifle, IR"
+          },
+          {
+            "roll": 10,
+            "item": "Laser rifle, UV or VL"
+          },
+          {
+            "roll": 11,
+            "item": "Micromissile (has launcher, warhead, guidance system)"
+          },
+          {
+            "roll": 12,
+            "item": "Needler"
+          },
+          {
+            "roll": 13,
+            "item": "Rad suit"
+          },
+          {
+            "roll": 14,
+            "item": "Screamer"
+          },
+          {
+            "roll": 15,
+            "item": "Smart dart (has warhead + guidance system)"
+          },
+          {
+            "roll": 16,
+            "item": "Stun ray pistol"
+          },
+          {
+            "roll": 17,
+            "item": "Stun ray rifle"
+          },
+          {
+            "roll": 18,
+            "item": "Tangler"
+          },
+          {
+            "roll": "19-20",
+            "item": "Scope, IR or laser (50/50 chance); roll 1d3 for x2/x5/x10 IR telescopic power"
+          }
+        ]
+      }
+    },
+    "techVI": {
+      "diceType": "d20",
+      "entries": [
+        {
+          "roll": 1,
+          "item": "Antigrav pods"
+        },
+        {
+          "roll": 2,
+          "item": "Nuclear fuel cell"
+        },
+        {
+          "roll": 3,
+          "item": "Drop belt"
+        },
+        {
+          "roll": 4,
+          "item": "Communicator"
+        },
+        {
+          "roll": 5,
+          "item": "I.D. card"
+        },
+        {
+          "roll": 6,
+          "item": "Life force detector"
+        },
+        {
+          "roll": 7,
+          "item": "Lift pack"
+        },
+        {
+          "roll": 8,
+          "item": "Liquid duralloy"
+        },
+        {
+          "roll": 9,
+          "item": "Medikit"
+        },
+        {
+          "roll": 10,
+          "item": "Portent"
+        },
+        {
+          "roll": 11,
+          "item": "Power cell, atomic"
+        },
+        {
+          "roll": 12,
+          "item": "Remote hand"
+        },
+        {
+          "roll": 13,
+          "item": "Tool set"
+        },
+        {
+          "roll": 14,
+          "item": "Toxin neutralizer"
+        },
+        {
+          "roll": "15-20",
+          "item": "Roll on Tech VI Armor & Weapons table"
+        }
+      ],
+      "armorAndWeaponsSubtable": {
+        "diceType": "d20",
+        "entries": [
+          {
+            "roll": 1,
+            "item": "Black ray rifle"
+          },
+          {
+            "roll": 2,
+            "item": "Blaster, Mark VII"
+          },
+          {
+            "roll": 3,
+            "item": "Conversion beamer"
+          },
+          {
+            "roll": 4,
+            "item": "Duralloy shield"
+          },
+          {
+            "roll": 5,
+            "item": "Fission cannon"
+          },
+          {
+            "roll": 6,
+            "item": "Force field generator"
+          },
+          {
+            "roll": 7,
+            "item": "Gravity gun"
+          },
+          {
+            "roll": 8,
+            "item": "1d6 grenades (roll type on Warheads/Grenades/Guidance table)"
+          },
+          {
+            "roll": 9,
+            "item": "Hazmat or radiation suit (50/50 chance)"
+          },
+          {
+            "roll": 10,
+            "item": "Laser rifle, IR"
+          },
+          {
+            "roll": 11,
+            "item": "Laser pistol, UV"
+          },
+          {
+            "roll": 12,
+            "item": "Maser rifle or pistol"
+          },
+          {
+            "roll": 13,
+            "item": "Micromissile (has launcher, warhead, guidance system)"
+          },
+          {
+            "roll": 14,
+            "item": "Neural bite"
+          },
+          {
+            "roll": 15,
+            "item": "Paralysis rod"
+          },
+          {
+            "roll": 16,
+            "item": "Plasma gun"
+          },
+          {
+            "roll": 17,
+            "item": "Scope, laser or computer (50/50 chance)"
+          },
+          {
+            "roll": 18,
+            "item": "Smart dart (has warhead + guidance system)"
+          },
+          {
+            "roll": 19,
+            "item": "Vibrodagger"
+          },
+          {
+            "roll": 20,
+            "item": "Vibroblade"
+          }
+        ]
+      }
+    }
+  },
+  "warheadsGrenadesGuidance": {
+    "description": "For any roll result that's a grenade, missile, micromissile, or smart dart, roll the warhead type here (dice type depends on the delivery system's Tech Level), then roll the Guidance System table for missiles/micromissiles/smart darts specifically (grenades and rocket-propelled grenades don't need guidance).",
+    "grenadesAndMissilesByTechLevel": {
+      "techIV": {
+        "diceType": "d6",
+        "columns": [
+          "warheadType",
+          "grenadeDamage",
+          "grenadeBlastRadius",
+          "grenadeAvgCost",
+          "missileDamage",
+          "missileBlastRadius",
+          "missileAvgCost"
+        ],
+        "rows": [
+          {
+            "roll": 1,
+            "warheadType": "Chemex",
+            "grenadeDamage": "3d6",
+            "grenadeBlastRadius": 10,
+            "grenadeAvgCost": 600,
+            "missileDamage": "3d8",
+            "missileBlastRadius": 20,
+            "missileAvgCost": 1500
+          },
+          {
+            "roll": 2,
+            "warheadType": "Flare, parachute",
+            "grenadeDamage": "2d6**",
+            "grenadeBlastRadius": 60,
+            "grenadeAvgCost": 400,
+            "missileDamage": "2d6*",
+            "missileBlastRadius": 100,
+            "missileAvgCost": 500
+          },
+          {
+            "roll": 3,
+            "warheadType": "Fragmentation",
+            "grenadeDamage": "3d6",
+            "grenadeBlastRadius": 15,
+            "grenadeAvgCost": 500,
+            "missileDamage": "3d8",
+            "missileBlastRadius": 30,
+            "missileAvgCost": 1200
+          },
+          {
+            "roll": 4,
+            "warheadType": "Gas (poison; tear on separate row in full table)",
+            "grenadeDamage": "Intensity 15",
+            "grenadeBlastRadius": 10,
+            "grenadeAvgCost": 750,
+            "missileDamage": "Intensity 20",
+            "missileBlastRadius": 25,
+            "missileAvgCost": 2500
+          },
+          {
+            "roll": 5,
+            "warheadType": "High explosive",
+            "grenadeDamage": "4d8",
+            "grenadeBlastRadius": 40,
+            "grenadeAvgCost": 1000,
+            "missileDamage": "4d10",
+            "missileBlastRadius": 50,
+            "missileAvgCost": 2500
+          },
+          {
+            "roll": 6,
+            "warheadType": "Smoke",
+            "grenadeDamage": "N/A",
+            "grenadeBlastRadius": 10,
+            "grenadeAvgCost": 100,
+            "missileDamage": "N/A",
+            "missileBlastRadius": 20,
+            "missileAvgCost": 150
+          }
+        ],
+        "note": "*Flare grenade blast radius is the illuminated area, damage only on a direct hit. **Full table (p.83) also separately lists 'Gas, tear' at grenade Intensity 15/10m/400 and missile Intensity 20/25m/1000 - condensed here for space; treat Gas as needing a d10 roll for poison-vs-tear in practice, or the GM's choice."
+      },
+      "techV": {
+        "diceType": "d4",
+        "rows": [
+          {
+            "roll": 1,
+            "warheadType": "ECM",
+            "grenadeDamage": "N/A",
+            "grenadeBlastRadius": 20,
+            "grenadeAvgCost": 1500,
+            "missileDamage": "N/A",
+            "missileBlastRadius": 35,
+            "missileAvgCost": 4000
+          },
+          {
+            "roll": 2,
+            "warheadType": "Photon",
+            "grenadeDamage": "3d8",
+            "grenadeBlastRadius": 25,
+            "grenadeAvgCost": 750,
+            "missileDamage": "3d10",
+            "missileBlastRadius": 40,
+            "missileAvgCost": 2000
+          },
+          {
+            "roll": 3,
+            "warheadType": "Stun",
+            "grenadeDamage": "Intensity 15",
+            "grenadeBlastRadius": 20,
+            "grenadeAvgCost": 600,
+            "missileDamage": "Intensity 20",
+            "missileBlastRadius": 50,
+            "missileAvgCost": 1500
+          },
+          {
+            "roll": 4,
+            "warheadType": "Tangler",
+            "grenadeDamage": "4d6",
+            "grenadeBlastRadius": 15,
+            "grenadeAvgCost": 400,
+            "missileDamage": "4d8",
+            "missileBlastRadius": 25,
+            "missileAvgCost": 1000
+          }
+        ]
+      },
+      "techVI": {
+        "diceType": "d3",
+        "rows": [
+          {
+            "roll": 1,
+            "warheadType": "Fission",
+            "grenadeDamage": "2d4",
+            "grenadeBlastRadius": 40,
+            "grenadeAvgCost": 2500,
+            "missileDamage": "2d6",
+            "missileBlastRadius": 75,
+            "missileAvgCost": 5000
+          },
+          {
+            "roll": 2,
+            "warheadType": "Gravity",
+            "grenadeDamage": "1d6+1",
+            "grenadeBlastRadius": 30,
+            "grenadeAvgCost": 800,
+            "missileDamage": "2d6",
+            "missileBlastRadius": 40,
+            "missileAvgCost": 1200
+          },
+          {
+            "roll": 3,
+            "warheadType": "Torc",
+            "grenadeDamage": "6d8",
+            "grenadeBlastRadius": "15 (centered around a 1m-radius safe zone)",
+            "grenadeAvgCost": 3000,
+            "missileDamage": "6d10",
+            "missileBlastRadius": "201 (centered around a 1m-radius safe zone)",
+            "missileAvgCost": 6000
+          }
+        ]
+      }
+    },
+    "guidanceSystem": {
+      "diceType": "d4 for Tech IV; d4+1 for Tech V and Tech VI",
+      "note": "Smart darts can only have Seeking or AI-guided systems (equal chance of either).",
+      "entries": [
+        {
+          "roll": 1,
+          "type": "Ordnance"
+        },
+        {
+          "roll": 2,
+          "type": "Seeking"
+        },
+        {
+          "roll": 3,
+          "type": "Wire guided"
+        },
+        {
+          "roll": 4,
+          "type": "Laser guided"
+        },
+        {
+          "roll": 5,
+          "type": "AI guided"
+        }
+      ],
+      "thacBonuses": "Micromissiles have better THAC bonuses than smart darts. Tech V micromissiles: 1d4+2 THAC bonus. Tech VI micromissiles: 1d4+6 THAC bonus. Smart darts (any tech level): 1d4+1 THAC bonus."
+    }
+  },
+  "commonEquipment": {
+    "description": "Mundane Tech 0-III gear, available in most towns. Complexity ratings are for using the item properly, not identifying it - characters are assumed to already know what any item at or below their tech level is.",
+    "columns": [
+      "item",
+      "avgCostDomars",
+      "weightKg",
+      "techLevel"
+    ],
+    "rows": [
+      {
+        "item": "Backpack",
+        "avgCostDomars": 5,
+        "weightKg": 1,
+        "techLevel": "I"
+      },
+      {
+        "item": "Bedroll",
+        "avgCostDomars": 5,
+        "weightKg": 2,
+        "techLevel": "I"
+      },
+      {
+        "item": "Boots",
+        "avgCostDomars": 10,
+        "weightKg": 1,
+        "techLevel": "II"
+      },
+      {
+        "item": "Canoe",
+        "avgCostDomars": 100,
+        "weightKg": 15,
+        "techLevel": "I"
+      },
+      {
+        "item": "Chain, 10m",
+        "avgCostDomars": 15,
+        "weightKg": 10,
+        "techLevel": "II"
+      },
+      {
+        "item": "Clock",
+        "avgCostDomars": 25,
+        "weightKg": 0.5,
+        "techLevel": "III"
+      },
+      {
+        "item": "Clothing",
+        "avgCostDomars": 10,
+        "weightKg": 1,
+        "techLevel": "0"
+      },
+      {
+        "item": "Compass",
+        "avgCostDomars": 6,
+        "weightKg": "Nil",
+        "techLevel": "III"
+      },
+      {
+        "item": "Flute",
+        "avgCostDomars": 12,
+        "weightKg": 0.5,
+        "techLevel": "I"
+      },
+      {
+        "item": "Fuse cord, 5m",
+        "avgCostDomars": 6,
+        "weightKg": "Nil",
+        "techLevel": "III"
+      },
+      {
+        "item": "Hourglass",
+        "avgCostDomars": 3,
+        "weightKg": 0.5,
+        "techLevel": "III"
+      },
+      {
+        "item": "Lantern",
+        "avgCostDomars": 4,
+        "weightKg": 0.5,
+        "techLevel": "III"
+      },
+      {
+        "item": "Lute",
+        "avgCostDomars": 18,
+        "weightKg": 1,
+        "techLevel": "III"
+      },
+      {
+        "item": "Oil, 1 flask",
+        "avgCostDomars": 3,
+        "weightKg": 0.5,
+        "techLevel": "II"
+      },
+      {
+        "item": "Map",
+        "avgCostDomars": 5,
+        "weightKg": "Nil",
+        "techLevel": "II"
+      },
+      {
+        "item": "Matchsticks, 50",
+        "avgCostDomars": 8,
+        "weightKg": "Nil",
+        "techLevel": "III"
+      },
+      {
+        "item": "Mirror",
+        "avgCostDomars": 4,
+        "weightKg": "Nil",
+        "techLevel": "II"
+      },
+      {
+        "item": "Paper, quill & ink",
+        "avgCostDomars": 2,
+        "weightKg": "Nil",
+        "techLevel": "II"
+      },
+      {
+        "item": "Poison, 1 dose intensity 10",
+        "avgCostDomars": 25,
+        "weightKg": "Nil",
+        "techLevel": "III"
+      },
+      {
+        "item": "Poison, 1 dose intensity 15",
+        "avgCostDomars": 50,
+        "weightKg": "Nil",
+        "techLevel": "III"
+      },
+      {
+        "item": "Poison, 1 dose intensity 20",
+        "avgCostDomars": 100,
+        "weightKg": "Nil",
+        "techLevel": "III"
+      },
+      {
+        "item": "Rations, dried, 1 week",
+        "avgCostDomars": 10,
+        "weightKg": 5,
+        "techLevel": "III"
+      },
+      {
+        "item": "Rog",
+        "avgCostDomars": 10,
+        "weightKg": "-",
+        "techLevel": "-"
+      },
+      {
+        "item": "Rope, hemp, 20m",
+        "avgCostDomars": 2,
+        "weightKg": 2,
+        "techLevel": "I"
+      },
+      {
+        "item": "Sack",
+        "avgCostDomars": 1,
+        "weightKg": 0.5,
+        "techLevel": "I"
+      },
+      {
+        "item": "Saddle",
+        "avgCostDomars": 15,
+        "weightKg": 15,
+        "techLevel": "II"
+      },
+      {
+        "item": "Scissors",
+        "avgCostDomars": 3,
+        "weightKg": "Nil",
+        "techLevel": "II"
+      },
+      {
+        "item": "Sextant",
+        "avgCostDomars": 12,
+        "weightKg": 0.5,
+        "techLevel": "III"
+      },
+      {
+        "item": "Shovel",
+        "avgCostDomars": 5,
+        "weightKg": 3,
+        "techLevel": "II"
+      },
+      {
+        "item": "Spikes, iron, 10",
+        "avgCostDomars": 1,
+        "weightKg": 1,
+        "techLevel": "III"
+      },
+      {
+        "item": "Spyglass",
+        "avgCostDomars": 10,
+        "weightKg": 0.5,
+        "techLevel": "III"
+      },
+      {
+        "item": "Stagon, riding",
+        "avgCostDomars": 100,
+        "weightKg": "-",
+        "techLevel": "-"
+      },
+      {
+        "item": "Stagon, fighting",
+        "avgCostDomars": 350,
+        "weightKg": "-",
+        "techLevel": "-"
+      },
+      {
+        "item": "Tool (any common)",
+        "avgCostDomars": 10,
+        "weightKg": 0.5,
+        "techLevel": "III"
+      },
+      {
+        "item": "Waterskin",
+        "avgCostDomars": 1,
+        "weightKg": 0.5,
+        "techLevel": "I"
+      },
+      {
+        "item": "Whistle",
+        "avgCostDomars": 1,
+        "weightKg": "Nil",
+        "techLevel": "II"
+      },
+      {
+        "item": "Wire, copper, 10m",
+        "avgCostDomars": 15,
+        "weightKg": 1,
+        "techLevel": "II"
+      }
+    ]
+  },
+  "commonMeleeWeapons": {
+    "description": "All Tech III characters automatically know how to use these; no complexity rating needed.",
+    "columns": [
+      "weapon",
+      "baseDamage",
+      "avgCostDomars",
+      "weightKg",
+      "techLevel"
+    ],
+    "rows": [
+      {
+        "weapon": "Battle axe",
+        "baseDamage": "1d8",
+        "avgCostDomars": 12,
+        "weightKg": 4,
+        "techLevel": "II"
+      },
+      {
+        "weapon": "Bayonet",
+        "baseDamage": "1d6*",
+        "avgCostDomars": 35,
+        "weightKg": 2,
+        "techLevel": "II"
+      },
+      {
+        "weapon": "Club",
+        "baseDamage": "1d6",
+        "avgCostDomars": "-",
+        "weightKg": 2,
+        "techLevel": "0"
+      },
+      {
+        "weapon": "Dagger",
+        "baseDamage": "1d4",
+        "avgCostDomars": 5,
+        "weightKg": 1,
+        "techLevel": "II"
+      },
+      {
+        "weapon": "Flail",
+        "baseDamage": "1d6+1",
+        "avgCostDomars": 5,
+        "weightKg": 7,
+        "techLevel": "II"
+      },
+      {
+        "weapon": "Halberd",
+        "baseDamage": "1d10",
+        "avgCostDomars": 15,
+        "weightKg": 7,
+        "techLevel": "II"
+      },
+      {
+        "weapon": "Hand axe",
+        "baseDamage": "1d6",
+        "avgCostDomars": 4,
+        "weightKg": 3,
+        "techLevel": "I"
+      },
+      {
+        "weapon": "Javelin",
+        "baseDamage": "1d6",
+        "avgCostDomars": 2,
+        "weightKg": 1,
+        "techLevel": "I"
+      },
+      {
+        "weapon": "Knife",
+        "baseDamage": "1d3",
+        "avgCostDomars": 1,
+        "weightKg": 0.5,
+        "techLevel": "II"
+      },
+      {
+        "weapon": "Lance",
+        "baseDamage": "1d6+1*",
+        "avgCostDomars": 10,
+        "weightKg": 5,
+        "techLevel": "II"
+      },
+      {
+        "weapon": "Mace",
+        "baseDamage": "1d6+1",
+        "avgCostDomars": 6,
+        "weightKg": 5,
+        "techLevel": "II"
+      },
+      {
+        "weapon": "Morningstar",
+        "baseDamage": "2d4",
+        "avgCostDomars": 7,
+        "weightKg": 6,
+        "techLevel": "II"
+      },
+      {
+        "weapon": "Rapier",
+        "baseDamage": "1d6",
+        "avgCostDomars": 9,
+        "weightKg": 1,
+        "techLevel": "II"
+      },
+      {
+        "weapon": "Quarterstaff",
+        "baseDamage": "1d6",
+        "avgCostDomars": "-",
+        "weightKg": 2,
+        "techLevel": "I"
+      },
+      {
+        "weapon": "Spear",
+        "baseDamage": "1d6**",
+        "avgCostDomars": 4,
+        "weightKg": 3,
+        "techLevel": "I"
+      },
+      {
+        "weapon": "Sword, long",
+        "baseDamage": "1d8",
+        "avgCostDomars": 10,
+        "weightKg": 3,
+        "techLevel": "II"
+      },
+      {
+        "weapon": "Sword, short",
+        "baseDamage": "1d6",
+        "avgCostDomars": 8,
+        "weightKg": 2,
+        "techLevel": "II"
+      },
+      {
+        "weapon": "War hammer",
+        "baseDamage": "1d4+1",
+        "avgCostDomars": 6,
+        "weightKg": 4,
+        "techLevel": "II"
+      },
+      {
+        "weapon": "Whip",
+        "baseDamage": "1d2",
+        "avgCostDomars": 2,
+        "weightKg": 1,
+        "techLevel": "I"
+      }
+    ],
+    "notes": {
+      "*": "Double damage when used with/braced for a charge.",
+      "**": "Double damage when braced for a charge."
+    }
+  },
+  "commonRangedWeapons": {
+    "columns": [
+      "weapon",
+      "baseDamage",
+      "shortRange",
+      "rateOfFire",
+      "avgCostDomars",
+      "weightKg",
+      "techLevel"
+    ],
+    "rows": [
+      {
+        "weapon": "Arquebus",
+        "baseDamage": "1d10",
+        "shortRange": 20,
+        "rateOfFire": "1/4",
+        "avgCostDomars": 25,
+        "weightKg": 10,
+        "techLevel": "III",
+        "note": "Requires a bracing stand, included in cost."
+      },
+      {
+        "weapon": "Blowgun",
+        "baseDamage": "1 or 1d4",
+        "shortRange": 6,
+        "rateOfFire": 1,
+        "avgCostDomars": 3,
+        "weightKg": 2,
+        "techLevel": "I"
+      },
+      {
+        "weapon": "Bola",
+        "baseDamage": "1d3",
+        "shortRange": 4,
+        "rateOfFire": 1,
+        "avgCostDomars": 2,
+        "weightKg": 4,
+        "techLevel": "I"
+      },
+      {
+        "weapon": "Bow, long",
+        "baseDamage": "1d8",
+        "shortRange": 10,
+        "rateOfFire": 1,
+        "avgCostDomars": 35,
+        "weightKg": 2,
+        "techLevel": "II"
+      },
+      {
+        "weapon": "Bow, short",
+        "baseDamage": "1d6",
+        "shortRange": 8,
+        "rateOfFire": 1,
+        "avgCostDomars": 20,
+        "weightKg": 2,
+        "techLevel": "I"
+      },
+      {
+        "weapon": "Heavy crossbow",
+        "baseDamage": "2d8",
+        "shortRange": 15,
+        "rateOfFire": "1/3 (1/2 if PS>=20)",
+        "avgCostDomars": 55,
+        "weightKg": 9,
+        "techLevel": "II"
+      },
+      {
+        "weapon": "Light crossbow",
+        "baseDamage": "2d6",
+        "shortRange": 12,
+        "rateOfFire": "1/2 (1 if PS>=20)",
+        "avgCostDomars": 40,
+        "weightKg": 7,
+        "techLevel": "II"
+      },
+      {
+        "weapon": "Flintlock pistol",
+        "baseDamage": "2d8",
+        "shortRange": 5,
+        "rateOfFire": "1/2",
+        "avgCostDomars": 40,
+        "weightKg": 2,
+        "techLevel": "III"
+      },
+      {
+        "weapon": "Flintlock rifle",
+        "baseDamage": "3d8",
+        "shortRange": 10,
+        "rateOfFire": "1/2",
+        "avgCostDomars": 75,
+        "weightKg": 6,
+        "techLevel": "III"
+      },
+      {
+        "weapon": "Dagger, throwing",
+        "baseDamage": "1d4",
+        "shortRange": 3,
+        "rateOfFire": 1,
+        "avgCostDomars": 6,
+        "weightKg": 1,
+        "techLevel": "II"
+      },
+      {
+        "weapon": "Hand axe",
+        "baseDamage": "1d6",
+        "shortRange": 3,
+        "rateOfFire": 1,
+        "avgCostDomars": 4,
+        "weightKg": 3,
+        "techLevel": "II"
+      },
+      {
+        "weapon": "Javelin",
+        "baseDamage": "1d6",
+        "shortRange": 4,
+        "rateOfFire": 1,
+        "avgCostDomars": 2,
+        "weightKg": 1,
+        "techLevel": "I"
+      },
+      {
+        "weapon": "Sling, using stones",
+        "baseDamage": "1d4",
+        "shortRange": 4,
+        "rateOfFire": 1,
+        "avgCostDomars": 1,
+        "weightKg": 0.5,
+        "techLevel": "I"
+      },
+      {
+        "weapon": "Spear",
+        "baseDamage": "1d6",
+        "shortRange": 4,
+        "rateOfFire": 1,
+        "avgCostDomars": 4,
+        "weightKg": 3,
+        "techLevel": "I"
+      }
+    ],
+    "rangedDamageNote": "Only bows, dagger, hand axe, javelin, and spear add the wielder's PS modifier to damage (muscle-powered). Firearms do not."
+  },
+  "commonArmor": {
+    "description": "All Tech III characters automatically know these armor types. Furs/skins AC bonus assumes several cured hide layers - a mutated animal's own natural hide is usually only one layer and does NOT automatically grant this bonus.",
+    "columns": [
+      "armor",
+      "acModifier",
+      "avgCostDomars",
+      "weightKg",
+      "techLevel"
+    ],
+    "rows": [
+      {
+        "armor": "Wooden shield",
+        "acModifier": 1,
+        "avgCostDomars": 10,
+        "weightKg": 5,
+        "techLevel": "I"
+      },
+      {
+        "armor": "Furs or skins",
+        "acModifier": 1,
+        "avgCostDomars": 3,
+        "weightKg": 10,
+        "techLevel": "I"
+      },
+      {
+        "armor": "Steel shield",
+        "acModifier": 2,
+        "avgCostDomars": 35,
+        "weightKg": 7,
+        "techLevel": "II"
+      },
+      {
+        "armor": "Leather armor",
+        "acModifier": 2,
+        "avgCostDomars": 20,
+        "weightKg": 8,
+        "techLevel": "II"
+      },
+      {
+        "armor": "Studded leather",
+        "acModifier": 3,
+        "avgCostDomars": 25,
+        "weightKg": 12,
+        "techLevel": "II"
+      },
+      {
+        "armor": "Ring mail",
+        "acModifier": 4,
+        "avgCostDomars": 35,
+        "weightKg": 15,
+        "techLevel": "II"
+      },
+      {
+        "armor": "Chain mail",
+        "acModifier": 5,
+        "avgCostDomars": 40,
+        "weightKg": 20,
+        "techLevel": "II"
+      },
+      {
+        "armor": "Banded mail",
+        "acModifier": 6,
+        "avgCostDomars": 50,
+        "weightKg": 17,
+        "techLevel": "II"
+      },
+      {
+        "armor": "Plate mail",
+        "acModifier": 7,
+        "avgCostDomars": 60,
+        "weightKg": 25,
+        "techLevel": "II"
+      }
+    ]
+  },
+  "commonArtifactsPriceTable": {
+    "description": "Average sale price / weight / tech level+complexity for named Tech IV-VI artifacts that aren't weapons or armor (those are in artifactRangedWeapons / artifactArmor / otherArtifactWeapons below). Matches the item names used in the Tech Level Artifact roll tables above.",
+    "columns": [
+      "item",
+      "avgCostDomars",
+      "weightKg",
+      "techLevelComplexity"
+    ],
+    "rows": [
+      {
+        "item": "Antigrav pods",
+        "avgCostDomars": 5000,
+        "weightKg": 25,
+        "techLevelComplexity": "VI, 8"
+      },
+      {
+        "item": "Binoculars",
+        "avgCostDomars": 100,
+        "weightKg": 0.5,
+        "techLevelComplexity": "IV, 6"
+      },
+      {
+        "item": "Communicator",
+        "avgCostDomars": 500,
+        "weightKg": 0.5,
+        "techLevelComplexity": "V-VI, 14"
+      },
+      {
+        "item": "Drop belt",
+        "avgCostDomars": 2000,
+        "weightKg": 1,
+        "techLevelComplexity": "VI, 7"
+      },
+      {
+        "item": "Energy cloak",
+        "avgCostDomars": 350,
+        "weightKg": 1,
+        "techLevelComplexity": "V, 8"
+      },
+      {
+        "item": "Envirolyzer",
+        "avgCostDomars": 750,
+        "weightKg": 2,
+        "techLevelComplexity": "V, 20"
+      },
+      {
+        "item": "Fire extinguisher",
+        "avgCostDomars": 400,
+        "weightKg": 6,
+        "techLevelComplexity": "IV, 7"
+      },
+      {
+        "item": "Flashlight",
+        "avgCostDomars": 50,
+        "weightKg": 0.5,
+        "techLevelComplexity": "IV, 5"
+      },
+      {
+        "item": "Gas mask",
+        "avgCostDomars": 500,
+        "weightKg": 1,
+        "techLevelComplexity": "IV, 10"
+      },
+      {
+        "item": "Geiger counter",
+        "avgCostDomars": 800,
+        "weightKg": 2,
+        "techLevelComplexity": "IV, 15"
+      },
+      {
+        "item": "Glow cube",
+        "avgCostDomars": 100,
+        "weightKg": 0.5,
+        "techLevelComplexity": "V, 6"
+      },
+      {
+        "item": "I.D. card, unknown",
+        "avgCostDomars": 50,
+        "weightKg": "Nil",
+        "techLevelComplexity": "V-VI, 3"
+      },
+      {
+        "item": "I.D. card, known - Personal",
+        "avgCostDomars": 200,
+        "weightKg": "Nil",
+        "techLevelComplexity": "V-VI, 3"
+      },
+      {
+        "item": "I.D. card, known - Supervisor",
+        "avgCostDomars": 1000,
+        "weightKg": "Nil",
+        "techLevelComplexity": "V-VI, 3"
+      },
+      {
+        "item": "I.D. card, known - Maintenance",
+        "avgCostDomars": 750,
+        "weightKg": "Nil",
+        "techLevelComplexity": "V-VI, 3"
+      },
+      {
+        "item": "I.D. card, known - Program override",
+        "avgCostDomars": 5000,
+        "weightKg": "Nil",
+        "techLevelComplexity": "V-VI, 3"
+      },
+      {
+        "item": "I.D. card, known - Civil override",
+        "avgCostDomars": 7500,
+        "weightKg": "Nil",
+        "techLevelComplexity": "V-VI, 3"
+      },
+      {
+        "item": "I.D. card, known - Security override",
+        "avgCostDomars": 9000,
+        "weightKg": "Nil",
+        "techLevelComplexity": "V-VI, 3"
+      },
+      {
+        "item": "IR goggles",
+        "avgCostDomars": 2000,
+        "weightKg": 0.5,
+        "techLevelComplexity": "IV, 8"
+      },
+      {
+        "item": "Lexicon, computer",
+        "avgCostDomars": 600,
+        "weightKg": 1,
+        "techLevelComplexity": "V, 12"
+      },
+      {
+        "item": "Life force detector",
+        "avgCostDomars": 800,
+        "weightKg": 2,
+        "techLevelComplexity": "VI, 10"
+      },
+      {
+        "item": "Lift pack",
+        "avgCostDomars": 750,
+        "weightKg": 5,
+        "techLevelComplexity": "VI, 7"
+      },
+      {
+        "item": "Liquid duralloy",
+        "avgCostDomars": 8000,
+        "weightKg": 12,
+        "techLevelComplexity": "VI, 18"
+      },
+      {
+        "item": "Medikit, Tech V",
+        "avgCostDomars": 2000,
+        "weightKg": 2,
+        "techLevelComplexity": "V, 17"
+      },
+      {
+        "item": "Medikit, Tech VI",
+        "avgCostDomars": 4000,
+        "weightKg": 2,
+        "techLevelComplexity": "VI, 22"
+      },
+      {
+        "item": "Motion detector",
+        "avgCostDomars": 800,
+        "weightKg": 1,
+        "techLevelComplexity": "V, 15"
+      },
+      {
+        "item": "Nuclear fuel cell",
+        "avgCostDomars": 1000,
+        "weightKg": 8,
+        "techLevelComplexity": "VI, 6"
+      },
+      {
+        "item": "Parachute",
+        "avgCostDomars": 200,
+        "weightKg": 10,
+        "techLevelComplexity": "IV, 14"
+      },
+      {
+        "item": "Portent",
+        "avgCostDomars": 1500,
+        "weightKg": 5,
+        "techLevelComplexity": "VI, 13"
+      },
+      {
+        "item": "Power cell, atomic",
+        "avgCostDomars": 5000,
+        "weightKg": 15,
+        "techLevelComplexity": "VI, 12"
+      },
+      {
+        "item": "Power cell, chemical",
+        "avgCostDomars": 100,
+        "weightKg": "Nil",
+        "techLevelComplexity": "IV, 5"
+      },
+      {
+        "item": "Power cell, hydrogen",
+        "avgCostDomars": 750,
+        "weightKg": "Nil",
+        "techLevelComplexity": "V, 5"
+      },
+      {
+        "item": "Power cell, solar",
+        "avgCostDomars": 1000,
+        "weightKg": "Nil",
+        "techLevelComplexity": "V, 5"
+      },
+      {
+        "item": "Rad badge",
+        "avgCostDomars": 250,
+        "weightKg": "Nil",
+        "techLevelComplexity": "IV, 4"
+      },
+      {
+        "item": "Radio, ham",
+        "avgCostDomars": 700,
+        "weightKg": 3,
+        "techLevelComplexity": "IV, 23"
+      },
+      {
+        "item": "Radio, listen only",
+        "avgCostDomars": 150,
+        "weightKg": 0.5,
+        "techLevelComplexity": "IV, 13"
+      },
+      {
+        "item": "Remote hand",
+        "avgCostDomars": 2000,
+        "weightKg": 1,
+        "techLevelComplexity": "VI, 13"
+      },
+      {
+        "item": "Solar charger",
+        "avgCostDomars": 1500,
+        "weightKg": 1,
+        "techLevelComplexity": "V, 10"
+      },
+      {
+        "item": "Toxin neutralizer",
+        "avgCostDomars": 900,
+        "weightKg": "Nil",
+        "techLevelComplexity": "VI, 8"
+      },
+      {
+        "item": "Tool set",
+        "avgCostDomars": "Varies (250-2000 by tech level and repair bonus rolled)",
+        "weightKg": 2,
+        "techLevelComplexity": "Varies"
+      },
+      {
+        "item": "Voltmeter",
+        "avgCostDomars": 350,
+        "weightKg": 0.5,
+        "techLevelComplexity": "IV, 12"
+      }
+    ]
+  },
+  "artifactRangedWeapons": {
+    "columns": [
+      "weapon",
+      "baseDamage",
+      "thacBonus",
+      "shortRange",
+      "rateOfFire",
+      "shotsPerReload",
+      "avgCostDomars",
+      "weightKg",
+      "techLevelComplexity"
+    ],
+    "rows": [
+      {
+        "weapon": "Assault rifle",
+        "baseDamage": "3d6",
+        "thacBonus": "+2/+4/+8",
+        "shortRange": 40,
+        "rateOfFire": "2*",
+        "shotsPerReload": "20 or 30",
+        "avgCostDomars": 4700,
+        "weightKg": 4,
+        "techLevelComplexity": "IV, 13"
+      },
+      {
+        "weapon": "Blaster, Mark V",
+        "baseDamage": "5d8",
+        "thacBonus": "+2",
+        "shortRange": 25,
+        "rateOfFire": 1,
+        "shotsPerReload": 6,
+        "avgCostDomars": 9000,
+        "weightKg": 5,
+        "techLevelComplexity": "V, 15"
+      },
+      {
+        "weapon": "Blaster, Mark VII",
+        "baseDamage": "5d10",
+        "thacBonus": "+2",
+        "shortRange": 40,
+        "rateOfFire": 1,
+        "shotsPerReload": 8,
+        "avgCostDomars": "-",
+        "weightKg": 6,
+        "techLevelComplexity": "VI, 14"
+      },
+      {
+        "weapon": "Conversion beamer",
+        "baseDamage": "6d10",
+        "thacBonus": "+3",
+        "shortRange": 80,
+        "rateOfFire": 1,
+        "shotsPerReload": 6,
+        "avgCostDomars": "-",
+        "weightKg": 7,
+        "techLevelComplexity": "VI, 17"
+      },
+      {
+        "weapon": "Flame thrower",
+        "baseDamage": "3d6",
+        "thacBonus": "+2",
+        "shortRange": 30,
+        "rateOfFire": 1,
+        "shotsPerReload": 5,
+        "avgCostDomars": 600,
+        "weightKg": 10,
+        "techLevelComplexity": "IV, 15"
+      },
+      {
+        "weapon": "Flying blades",
+        "baseDamage": "1d8",
+        "thacBonus": "+10",
+        "shortRange": "-",
+        "rateOfFire": 1,
+        "shotsPerReload": 1,
+        "avgCostDomars": 750,
+        "weightKg": 2,
+        "techLevelComplexity": "V, 9"
+      },
+      {
+        "weapon": "Fission cannon",
+        "baseDamage": "3d8",
+        "thacBonus": "+3",
+        "shortRange": 150,
+        "rateOfFire": 1,
+        "shotsPerReload": "-",
+        "avgCostDomars": "-",
+        "weightKg": 75,
+        "techLevelComplexity": "VI, 25",
+        "note": "Must be mounted; cannot be carried."
+      },
+      {
+        "weapon": "Gatling gun",
+        "baseDamage": "2d10",
+        "thacBonus": "+4",
+        "shortRange": 100,
+        "rateOfFire": "1**",
+        "shotsPerReload": 50,
+        "avgCostDomars": 5200,
+        "weightKg": 70,
+        "techLevelComplexity": "IV, 16",
+        "note": "Must be mounted; cannot be carried."
+      },
+      {
+        "weapon": "Grenade launcher",
+        "baseDamage": "Varies",
+        "thacBonus": "+2",
+        "shortRange": 40,
+        "rateOfFire": "1/2",
+        "shotsPerReload": 1,
+        "avgCostDomars": 4500,
+        "weightKg": 4,
+        "techLevelComplexity": "IV, 10"
+      },
+      {
+        "weapon": "Gravity gun",
+        "baseDamage": "1d6+1",
+        "thacBonus": "+5",
+        "shortRange": 20,
+        "rateOfFire": 1,
+        "shotsPerReload": 3,
+        "avgCostDomars": 3500,
+        "weightKg": 16,
+        "techLevelComplexity": "VI, 18"
+      },
+      {
+        "weapon": "Laser pistol, IR",
+        "baseDamage": "3d6",
+        "thacBonus": "+3",
+        "shortRange": 20,
+        "rateOfFire": 1,
+        "shotsPerReload": 8,
+        "avgCostDomars": 5000,
+        "weightKg": 2,
+        "techLevelComplexity": "V or VI, 11"
+      },
+      {
+        "weapon": "Laser rifle, IR",
+        "baseDamage": "4d6",
+        "thacBonus": "+5",
+        "shortRange": 60,
+        "rateOfFire": 1,
+        "shotsPerReload": 8,
+        "avgCostDomars": 7500,
+        "weightKg": 4,
+        "techLevelComplexity": "V or VI, 11"
+      },
+      {
+        "weapon": "Laser pistol, UV",
+        "baseDamage": "3d8",
+        "thacBonus": "+3",
+        "shortRange": 30,
+        "rateOfFire": 1,
+        "shotsPerReload": 6,
+        "avgCostDomars": 6000,
+        "weightKg": 1,
+        "techLevelComplexity": "V, 10"
+      },
+      {
+        "weapon": "Laser rifle, UV",
+        "baseDamage": "4d8",
+        "thacBonus": "+5",
+        "shortRange": 75,
+        "rateOfFire": 1,
+        "shotsPerReload": 6,
+        "avgCostDomars": 8000,
+        "weightKg": 3,
+        "techLevelComplexity": "V, 10"
+      },
+      {
+        "weapon": "Laser rifle, VL",
+        "baseDamage": "4d6",
+        "thacBonus": "+3",
+        "shortRange": 25,
+        "rateOfFire": 1,
+        "shotsPerReload": 4,
+        "avgCostDomars": 3500,
+        "weightKg": 5,
+        "techLevelComplexity": "V, 12"
+      },
+      {
+        "weapon": "Machine gun",
+        "baseDamage": "3d8",
+        "thacBonus": "+8/+12",
+        "shortRange": 100,
+        "rateOfFire": "1**",
+        "shotsPerReload": 100,
+        "avgCostDomars": 7500,
+        "weightKg": 10,
+        "techLevelComplexity": "IV, 15"
+      },
+      {
+        "weapon": "Machine pistol",
+        "baseDamage": "2d8",
+        "thacBonus": "+2/+4",
+        "shortRange": 10,
+        "rateOfFire": "2 dagger",
+        "shotsPerReload": 30,
+        "avgCostDomars": 3900,
+        "weightKg": 3,
+        "techLevelComplexity": "IV, 13"
+      },
+      {
+        "weapon": "Maser pistol",
+        "baseDamage": "3d10",
+        "thacBonus": "+3",
+        "shortRange": 40,
+        "rateOfFire": 2,
+        "shotsPerReload": 8,
+        "avgCostDomars": 7000,
+        "weightKg": 1,
+        "techLevelComplexity": "VI, 10"
+      },
+      {
+        "weapon": "Maser rifle",
+        "baseDamage": "4d10",
+        "thacBonus": "+5",
+        "shortRange": 100,
+        "rateOfFire": 2,
+        "shotsPerReload": 8,
+        "avgCostDomars": "-",
+        "weightKg": 3,
+        "techLevelComplexity": "VI, 10"
+      },
+      {
+        "weapon": "Micromissile",
+        "baseDamage": "Varies",
+        "thacBonus": "Varies",
+        "shortRange": 50,
+        "rateOfFire": 1,
+        "shotsPerReload": 1,
+        "avgCostDomars": "Varies",
+        "weightKg": 5,
+        "techLevelComplexity": "V or VI, Varies"
+      },
+      {
+        "weapon": "Needler",
+        "baseDamage": 1,
+        "thacBonus": 0,
+        "shortRange": 7,
+        "rateOfFire": 2,
+        "shotsPerReload": 20,
+        "avgCostDomars": 900,
+        "weightKg": 1,
+        "techLevelComplexity": "V, 12"
+      },
+      {
+        "weapon": "Plasma gun",
+        "baseDamage": "5d10",
+        "thacBonus": "+2",
+        "shortRange": 30,
+        "rateOfFire": 1,
+        "shotsPerReload": 8,
+        "avgCostDomars": "-",
+        "weightKg": 6,
+        "techLevelComplexity": "VI, 19"
+      },
+      {
+        "weapon": "Revolver",
+        "baseDamage": "2d8",
+        "thacBonus": 0,
+        "shortRange": 15,
+        "rateOfFire": 2,
+        "shotsPerReload": 6,
+        "avgCostDomars": 800,
+        "weightKg": 2,
+        "techLevelComplexity": "IV, 9"
+      },
+      {
+        "weapon": "Rifle, bolt-action",
+        "baseDamage": "3d8",
+        "thacBonus": "+2",
+        "shortRange": 60,
+        "rateOfFire": 2,
+        "shotsPerReload": 4,
+        "avgCostDomars": 1800,
+        "weightKg": 5,
+        "techLevelComplexity": "IV, 7"
+      },
+      {
+        "weapon": "Screamer",
+        "baseDamage": "4d10",
+        "thacBonus": 0,
+        "shortRange": 5,
+        "rateOfFire": 1,
+        "shotsPerReload": 7,
+        "avgCostDomars": 4500,
+        "weightKg": 9,
+        "techLevelComplexity": "V, 13"
+      },
+      {
+        "weapon": "Shotgun, buckshot",
+        "baseDamage": "4d6",
+        "thacBonus": 0,
+        "shortRange": 10,
+        "rateOfFire": 2,
+        "shotsPerReload": 4,
+        "avgCostDomars": 1600,
+        "weightKg": 2,
+        "techLevelComplexity": "IV, 8"
+      },
+      {
+        "weapon": "Smart dart",
+        "baseDamage": "3d6",
+        "thacBonus": "Varies",
+        "shortRange": 12,
+        "rateOfFire": 1,
+        "shotsPerReload": 1,
+        "avgCostDomars": "Varies",
+        "weightKg": 1,
+        "techLevelComplexity": "V or VI, 8"
+      },
+      {
+        "weapon": "Sniper rifle",
+        "baseDamage": "3d8",
+        "thacBonus": "+4",
+        "shortRange": 150,
+        "rateOfFire": 1,
+        "shotsPerReload": 10,
+        "avgCostDomars": 2700,
+        "weightKg": 5,
+        "techLevelComplexity": "IV, 12"
+      },
+      {
+        "weapon": "Stun ray pistol",
+        "baseDamage": "N/A",
+        "thacBonus": 0,
+        "shortRange": 20,
+        "rateOfFire": 1,
+        "shotsPerReload": 6,
+        "avgCostDomars": 3200,
+        "weightKg": 3,
+        "techLevelComplexity": "V, 14"
+      },
+      {
+        "weapon": "Stun ray rifle",
+        "baseDamage": "N/A",
+        "thacBonus": "+2",
+        "shortRange": 35,
+        "rateOfFire": 1,
+        "shotsPerReload": 9,
+        "avgCostDomars": 5500,
+        "weightKg": 5,
+        "techLevelComplexity": "V, 14"
+      },
+      {
+        "weapon": "Tangler",
+        "baseDamage": "2d6+3",
+        "thacBonus": 0,
+        "shortRange": 8,
+        "rateOfFire": 1,
+        "shotsPerReload": 5,
+        "avgCostDomars": 2000,
+        "weightKg": 4,
+        "techLevelComplexity": "V, 15"
+      },
+      {
+        "weapon": "Taser",
+        "baseDamage": "1d3",
+        "thacBonus": 0,
+        "shortRange": 3,
+        "rateOfFire": "1/7",
+        "shotsPerReload": 1,
+        "avgCostDomars": 1200,
+        "weightKg": 2,
+        "techLevelComplexity": "IV, 17",
+        "note": "One set of wires/needles, but the power cell is good for 7 firings."
+      }
+    ],
+    "notes": {
+      "*": "THAC bonuses given for single shot / three-shell burst / full auto - make only one attack roll using the appropriate THAC bonus.",
+      "**": "Only one attack roll made even though more than one shell is expended; THAC bonuses are for three-shell bursts and full auto fire (machine pistols have no single-shot mode)."
+    },
+    "ammunition": {
+      "avgCostDomars": "1 domar for 30 shells",
+      "weightKg": "1 kg per 30 shells",
+      "compatibilityRule": "Ammunition is generally NOT interchangeable between different gun models even of the same caliber-sounding type, unless the GM declares a standardized round as an exception."
+    }
+  },
+  "otherArtifactWeapons": {
+    "description": "Futuristic weapons whose effects are too unique for the standard stat tables above; described individually in the book's running text (not yet extracted here beyond basic cost/weight/tech level).",
+    "columns": [
+      "weapon",
+      "weightKg",
+      "avgCostDomars",
+      "techLevelComplexity"
+    ],
+    "rows": [
+      {
+        "weapon": "Black ray rifle",
+        "weightKg": 3,
+        "avgCostDomars": "-",
+        "techLevelComplexity": "VI, 13"
+      },
+      {
+        "weapon": "Drone weaver",
+        "weightKg": 0.5,
+        "avgCostDomars": 5000,
+        "techLevelComplexity": "V, 20"
+      },
+      {
+        "weapon": "Energy mace",
+        "weightKg": 1,
+        "avgCostDomars": 1800,
+        "techLevelComplexity": "V, 10"
+      },
+      {
+        "weapon": "Lamprey disk",
+        "weightKg": 1,
+        "avgCostDomars": 7500,
+        "techLevelComplexity": "V, 12"
+      },
+      {
+        "weapon": "Neural bite",
+        "weightKg": 0.5,
+        "avgCostDomars": 1200,
+        "techLevelComplexity": "VI, 10"
+      },
+      {
+        "weapon": "Paralysis rod",
+        "weightKg": 1,
+        "avgCostDomars": 1500,
+        "techLevelComplexity": "VI, 10"
+      },
+      {
+        "weapon": "Vibrodagger",
+        "weightKg": 0.5,
+        "avgCostDomars": 4000,
+        "techLevelComplexity": "VI, 11"
+      },
+      {
+        "weapon": "Vibroblade",
+        "weightKg": 0.5,
+        "avgCostDomars": 7000,
+        "techLevelComplexity": "VI, 11"
+      }
+    ],
+    "note": "Most of these items are so rarely sold that the listed average cost is closer to a starting negotiation point than a market price; some (e.g. Black ray rifle) have no meaningful average cost at all since owners essentially never sell them."
+  },
+  "artifactArmor": {
+    "columns": [
+      "armor",
+      "acBonus",
+      "avgCostDomars",
+      "weightKg",
+      "techLevelComplexity"
+    ],
+    "rows": [
+      {
+        "armor": "Duralloy shield",
+        "acBonus": 3,
+        "avgCostDomars": 1200,
+        "weightKg": 4,
+        "techLevelComplexity": "VI, 0"
+      },
+      {
+        "armor": "Fireman's suit",
+        "acBonus": 2,
+        "avgCostDomars": 750,
+        "weightKg": 9,
+        "techLevelComplexity": "IV, 5"
+      },
+      {
+        "armor": "Force field generator",
+        "acBonus": "None (separate absorb/regenerate mechanic)",
+        "avgCostDomars": 1500,
+        "weightKg": 10,
+        "techLevelComplexity": "V or VI, 14"
+      },
+      {
+        "armor": "Hazmat suit",
+        "acBonus": 2,
+        "avgCostDomars": "Varies",
+        "weightKg": 12,
+        "techLevelComplexity": "Varies, 7"
+      },
+      {
+        "armor": "Bulletproof vest",
+        "acBonus": 3,
+        "avgCostDomars": "Varies",
+        "weightKg": 5,
+        "techLevelComplexity": "IV, 3"
+      },
+      {
+        "armor": "Radiation suit",
+        "acBonus": 1,
+        "avgCostDomars": "Varies",
+        "weightKg": 5,
+        "techLevelComplexity": "Varies, 8"
+      },
+      {
+        "armor": "Riot shield",
+        "acBonus": 2,
+        "avgCostDomars": 300,
+        "weightKg": 2,
+        "techLevelComplexity": "IV, 0"
+      },
+      {
+        "armor": "Sports gear",
+        "acBonus": "+4* (average; ranges +1 to +6)",
+        "avgCostDomars": 500,
+        "weightKg": 7,
+        "techLevelComplexity": "IV, 10"
+      }
+    ]
+  }
+};
+})(typeof window !== 'undefined' ? window : global);

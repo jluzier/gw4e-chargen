@@ -1,0 +1,72 @@
+{
+  "_meta": {
+    "source": "TSR 07514 - Gamma World, 4th Edition (1992 boxed set rulebook), pp. 193-194",
+    "purpose": "Field layout only (labels/structure), reconstructed from the book's blank, reproducible character sheet template. No flavor text or narrative content - just the form structure, so generated characters can be formatted consistently.",
+    "usageNote": "When presenting a generated character, fill these fields with the character's actual values. Omit fields with no data yet (e.g. Cryptic Alliance, Domars if not rolled) rather than leaving visible blanks, unless the user wants a printable blank-style sheet."
+  },
+
+  "pageOneFields": {
+    "header": ["Character Name", "Player Name"],
+    "identity": ["Genotype", "Character Class", "Level"],
+    "affiliation": ["Cryptic Alliance", "Alliance Benefits"],
+    "background": ["Home Town", "Tech Level", "Family"],
+    "baseStock": "Base Animal/Plant Stock Abilities (free-text line - natural attacks/abilities from base stock)",
+
+    "attributeBlock": {
+      "description": "Seven primary attributes, each with Score and Modifier, laid out alongside the derived attributes they feed.",
+      "columns": ["attribute", "score", "modifier", "linkedDerivedAttribute"],
+      "rows": [
+        { "attribute": "PS", "linkedDerivedAttribute": "THAC Melee" },
+        { "attribute": "DX", "linkedDerivedAttribute": "THAC Ranged" },
+        { "attribute": "CN", "linkedDerivedAttribute": "Health" },
+        { "attribute": "MS", "linkedDerivedAttribute": "Mental Defense (MD)" },
+        { "attribute": "IN", "linkedDerivedAttribute": "Use Artifacts" },
+        { "attribute": "CH", "linkedDerivedAttribute": "Robot Recognition" },
+        { "attribute": "SN", "linkedDerivedAttribute": "Perception" }
+      ],
+      "additionalDerivedFields": ["Damage Bonus", "Stealth", "Remain Unseen", "Max Lift in Kg", "Base Armor Class"]
+    },
+
+    "speedChart": {
+      "description": "Speed at different movement modes, each with a value.",
+      "rows": ["Walk", "Trot x2", "Run x3", "Fly", "Swim"],
+      "columns": ["Max Encumbrance tier (Light 1/3, Medium 2/3, Heavy 1)"]
+    },
+
+    "attributeModifiersTableReference": "Same Attribute Modifiers Table as in gw4e_character_generation.json (attributeGeneration.attributeModifiersTable) - printed on the sheet itself for quick reference during play.",
+
+    "combatBlock": ["AC w/Armor", "Force Field", "Hits on Force Field", "Hit Points", "Wounds"],
+
+    "classSkillsBlock": {
+      "description": "Up to 5 class skill lines with point values, plus Domars and Experience Points trackers.",
+      "fields": ["Character Class Skills (up to 5, with point value each)", "Domars", "Experience Points"]
+    },
+
+    "physicalMutationsBlock": {
+      "description": "Up to 8 physical mutation lines.",
+      "columns": ["#", "Mutation name", "MP (power score, if applicable)", "Notes/Bonuses"]
+    },
+
+    "mentalMutationsBlock": {
+      "description": "Up to 8 mental mutation lines.",
+      "columns": ["#", "Mutation name", "MP (power score, if applicable)", "MHAC (derived from MP)", "Notes/Bonuses"]
+    }
+  },
+
+  "pageTwoFields": {
+    "equipmentBlock": {
+      "description": "Up to 10 equipment lines for mundane gear.",
+      "columns": ["#", "Item name", "THAC", "Damage", "Weight", "Notes/Ranges/Special Abilities"]
+    },
+    "artifactsBlock": {
+      "description": "Up to 10 artifact lines for Tech III+ items.",
+      "columns": ["#", "Item name", "THAC", "Damage", "Weight", "Charges", "Notes/Ranges/Special Abilities"]
+    },
+    "adventureNotes": "Free-text notes area for ongoing campaign/session notes."
+  },
+
+  "renderingGuidance": {
+    "forChatOutput": "Present as a compact Markdown table/block mirroring these sections in order: header/identity -> attributes+modifiers -> derived combat stats -> class skills+domars+XP -> physical mutations -> mental mutations. Omit page 2 (Equipment/Artifacts/Adventure Notes) unless the character has actual starting gear determined, or the user asks for the full two-page layout.",
+    "forFileOutput": "If the user asks to save/export a character (e.g. as a Word doc or PDF), use this same field structure and both pages, leaving blank lines for fields not yet determined (e.g. Character Name if not chosen, Cryptic Alliance if none)."
+  }
+}

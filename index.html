@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gamma World 4E Character Generator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="app-header">
+  <h1>GAMMA WORLD <span class="edition">4th Edition</span> Character Generator</h1>
+  <div class="header-actions">
+    <button id="startOverBtn" class="btn btn-ghost" type="button">Start Over</button>
+  </div>
+</header>
+
+<nav id="stepNav" class="step-nav" aria-label="Character generation steps"></nav>
+
+<div class="layout">
+  <main id="wizard" class="wizard"></main>
+
+  <aside class="sidebar-col">
+    <div class="cart-panel">
+      <h3>Character So Far</h3>
+      <div id="cartBody"></div>
+    </div>
+
+    <div class="roll-log-panel">
+      <button id="rollLogToggle" class="roll-log-toggle" type="button" aria-expanded="false">
+        Roll Log <span id="rollLogCount" class="roll-log-count">0</span>
+      </button>
+      <div id="rollLogBody" class="roll-log-body" hidden></div>
+    </div>
+  </aside>
+</div>
+
+<footer class="app-footer">
+  Unofficial fan-made tool for <em>Gamma World, 4th Edition</em> (TSR/Wizards of the Coast) &mdash;
+  not affiliated with or endorsed by Wizards of the Coast or Hasbro.
+  Dice animation: <a href="https://github.com/sarahRosannaBusch/dice" target="_blank" rel="noopener">sarahRosannaBusch/dice</a> (MIT License).
+</footer>
+
+<div id="attrTooltip" class="attr-tooltip" role="tooltip" hidden></div>
+<div id="diceStageHost" class="dice-stage-host"></div>
+
+<script src="data/generation.js"></script>
+<script src="data/mutationEffects.js"></script>
+<script src="data/equipment.js"></script>
+<script src="data/sheetTemplate.js"></script>
+<script src="data/attributeDescriptions.js"></script>
+<script src="vendor/dice/libs/three.min.js"></script>
+<script src="vendor/dice/libs/cannon.min.js"></script>
+<script src="vendor/dice/libs/teal.js"></script>
+<script src="vendor/dice/dice.js"></script>
+<script src="diceVisuals.js"></script>
+<script src="engine.js"></script>
+<script src="ui.js"></script>
+</body>
+</html>

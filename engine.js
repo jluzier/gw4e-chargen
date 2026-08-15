@@ -1,12 +1,14 @@
 // Gamma World 4E character generation engine — pure logic, no DOM.
-// Consumes the GW4E_GENERATION / GW4E_MUTATION_EFFECTS / GW4E_EQUIPMENT / GW4E_SHEET_TEMPLATE
-// globals defined in data/*.js. Runs identically in a browser <script> or under Node (via vm).
+// Consumes the GW4E_GENERATION / GW4E_MUTATION_EFFECTS / GW4E_EQUIPMENT /
+// GW4E_SHEET_TEMPLATE / GW4E_CRYPTIC_ALLIANCES globals defined in data/*.js.
+// Runs identically in a browser <script> or under Node (via vm).
 
 (function (root) {
   'use strict';
 
   const GEN = root.GW4E_GENERATION;
   const MUT_FX = root.GW4E_MUTATION_EFFECTS;
+  const ALLIANCES = root.GW4E_CRYPTIC_ALLIANCES;
 
   // ---------------------------------------------------------------------
   // Dice
@@ -525,6 +527,55 @@
   }
 
   // ---------------------------------------------------------------------
+  // Step 7: cryptic alliance (optional)
+  // ---------------------------------------------------------------------
+
+  function getAllianceKeys() {
+    return Object.keys(ALLIANCES.alliances);
+  }
+
+  function getAlliance(key) {
+    return ALLIANCES.alliances[key];
+  }
+
+  function getPlayerEligibleAllianceKeys() {
+    return getAllianceKeys().filter((k) => ALLIANCES.alliances[k].playerCharacterEligible);
+  }
+
+  // Alliance data marks restrictions as free text (e.g. "Altered Humans
+  // only") rather than a structured genotype key, so match it against the
+  // genotype's own display name rather than hardcoding which alliance goes
+  // with which genotype.
+  function alliancePermitsGenotype(allianceKey, genotypeKey) {
+    const alliance = getAlliance(allianceKey);
+    if (!alliance || !alliance.genotypeRestriction) return true;
+    const genotype = getGenotype(genotypeKey);
+    if (!genotype) return true;
+    return alliance.genotypeRestriction.toLowerCase().includes(genotype.displayName.toLowerCase());
+  }
+
+  // Alliances split into "traditional"/"reformed" wings, except Zoopremists
+  // which uses "left"/"right" - detect whichever pair is present rather than
+  // assuming one naming scheme.
+  function getAllianceWings(allianceKey) {
+    const alliance = getAlliance(allianceKey);
+    if (!alliance) return null;
+    if (alliance.traditional && alliance.reformed) {
+      return [
+        { key: 'traditional', label: 'Traditional', description: alliance.traditional },
+        { key: 'reformed', label: 'Reformed', description: alliance.reformed },
+      ];
+    }
+    if (alliance.left && alliance.right) {
+      return [
+        { key: 'left', label: 'Left', description: alliance.left },
+        { key: 'right', label: 'Right', description: alliance.right },
+      ];
+    }
+    return null;
+  }
+
+  // ---------------------------------------------------------------------
   // Step 6: derived attributes
   // ---------------------------------------------------------------------
 
@@ -676,6 +727,11 @@
     characterHasMentalMutationWithPowerScore,
     isClassAvailable,
     validateSkillAllocation,
+    getAllianceKeys,
+    getAlliance,
+    getPlayerEligibleAllianceKeys,
+    alliancePermitsGenotype,
+    getAllianceWings,
     calculateDerivedAttributes,
     computeRobotRecognitionMutationPenalty,
     computeBaseSpeed,

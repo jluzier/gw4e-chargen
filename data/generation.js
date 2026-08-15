@@ -7,9 +7,8 @@
     "pagesCovered": "Chapter 2: Character Generation (pp. 8-25) plus Base Animal/Plant Stock lists and the d100 Mutation tables",
     "companionFile": "gw4e_mutation_effects.json - full mechanical effect text for every mutation named in the roll tables below (Chapter 3: Mutations, pp. 26-47). Keyed by mutation name, exact string match against the 'mutation' field in physicalMutationsTable/mentalMutationsTable/plantMutationsTable.",
     "companionFile2": "gw4e_equipment.json - Loot Table mechanism, Tech III-VI Artifact roll tables (including the Examiner's starting Tech IV item), Common Equipment/Weapons/Armor price tables, and Artifact Weapons/Armor stat tables (Chapter 6: Equipment, pp. 78-96).",
-    "stillToExtract": [
-      "Cryptic Alliances chapter full write-ups (pp. 127-139) - chargen only covers the concept, not the actual alliance options"
-    ]
+    "companionFile3": "gw4e_cryptic_alliances.json - full write-ups of all 13 Cryptic Alliances (Chapter 8, pp. 127-139), including which are player-character-eligible.",
+    "stillToExtract": []
   },
   "characterGenerationProcess": [
     "1. Pick a genotype",
@@ -1585,7 +1584,7 @@
   "crypticAlliance": {
     "description": "Optional at character creation and any later point in the game. Never required. A character can never belong to more than one cryptic alliance at the same time.",
     "tradeoffs": "Alliance gives advantages (often artifacts or information) but demands loyalty to the alliance's aims/likes/dislikes; shirking duty can lead to expulsion or harsher penalties.",
-    "fullDetailsLocation": "Full write-ups of each specific cryptic alliance are in the dedicated 'Cryptic Alliances' chapter (pp. 127-139) - not yet extracted into this datasheet."
+    "fullDetailsLocation": "See gw4e_cryptic_alliances.json for full write-ups of all 13 alliances, including which are open to player characters (several - The Created, Knights of Genetic Purity, Seekers - are explicitly NPC-only)."
   },
   "startingEquipment": {
     "description": "GM determines how much starting money characters have; depends on the local economy/region and any sponsoring agency (e.g., a faction funding the party might grant free Tech III items instead of cash).",

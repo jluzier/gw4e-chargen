@@ -5,7 +5,7 @@
   'use strict';
 
   const GEN = window.GW4E_GENERATION;
-  const STEP_ORDER = ['genotype', 'attributes', 'mutations', 'humanoidTraits', 'class', 'skills', 'sheet'];
+  const STEP_ORDER = ['genotype', 'attributes', 'mutations', 'humanoidTraits', 'class', 'skills', 'crypticAlliance', 'sheet'];
   const STEP_LABELS = {
     genotype: '1. Genotype',
     attributes: '2. Attributes',
@@ -13,7 +13,8 @@
     humanoidTraits: '4. Humanoid Traits',
     class: '5. Class',
     skills: '6. Skills',
-    sheet: '7. Character Sheet',
+    crypticAlliance: '7. Cryptic Alliance',
+    sheet: '8. Character Sheet',
   };
 
   let state = null;
@@ -31,6 +32,7 @@
         tookHumanoidBipedal: false,
         characterClass: null,
         skillAllocation: null,
+        crypticAlliance: null,
         derived: null,
         name: '',
       },
@@ -39,6 +41,7 @@
       mutation: null,
       attributesRevealed: new Set(),
       sheetRevealed: false,
+      allianceSkipped: false,
     };
   }
 
@@ -144,6 +147,10 @@
       sections.push(`<div class="cart-section"><span class="cart-label">Skills</span><ul class="cart-mut-list">${items}</ul></div>`);
     }
 
+    if (c.crypticAlliance || state.allianceSkipped) {
+      sections.push(`<div class="cart-section"><span class="cart-label">Alliance</span>${escapeHtml(allianceDisplayText(c))}</div>`);
+    }
+
     if (c.derived && state.sheetRevealed) {
       sections.push(`<div class="cart-section"><span class="cart-label">Derived</span>HP ${c.derived.hitPoints} · AC ${c.derived.ac} · Domars ${c.derived.domars}</div>`);
     }
@@ -180,6 +187,7 @@
       humanoidTraits: renderHumanoidTraitsStep,
       class: renderClassStep,
       skills: renderSkillsStep,
+      crypticAlliance: renderCrypticAllianceStep,
       sheet: renderSheetStep,
     };
     renderers[state.step](wizard);
@@ -692,11 +700,11 @@
     for (const skill of cls.skills.list) inputs[skill].addEventListener('input', updateSum);
 
     const row = el('<div class="btn-row"></div>');
-    const continueBtn = el('<button type="button" class="btn">Continue to Character Sheet →</button>');
+    const continueBtn = el('<button type="button" class="btn">Continue to Cryptic Alliance →</button>');
     continueBtn.addEventListener('click', () => {
       const { allocation } = updateSum();
       state.character.skillAllocation = allocation;
-      goToStep('sheet');
+      goToStep('crypticAlliance');
     });
     row.appendChild(continueBtn);
     card.appendChild(row);
@@ -705,7 +713,102 @@
   }
 
   // -----------------------------------------------------------------
-  // Step 7: Sheet
+  // Step 7: Cryptic Alliance (optional)
+  // -----------------------------------------------------------------
+
+  function renderCrypticAllianceStep(wizard) {
+    const card = el('<div class="card"><h2>Step 7 — Cryptic Alliance</h2></div>');
+    card.appendChild(el('<p class="hint">Optional and never required — a character can belong to at most one alliance at a time. Each grants Benefits in exchange for Restrictions and (usually) an Experience Point bonus for advancing the alliance\'s goals.</p>'));
+
+    const grid = el('<div class="choice-grid"></div>');
+    for (const key of GW4E.getPlayerEligibleAllianceKeys()) {
+      const alliance = GW4E.getAlliance(key);
+      const eligible = GW4E.alliancePermitsGenotype(key, state.character.genotype);
+      const btn = el(`<button type="button" class="choice-card" data-alliance="${key}" ${eligible ? '' : 'disabled'}>
+        <span class="choice-title">${escapeHtml(alliance.displayName)}${alliance.alternateName ? ` <span class="hint">(${escapeHtml(alliance.alternateName)})</span>` : ''}</span>
+        <span class="choice-sub">${escapeHtml(alliance.concept)}</span>
+        ${alliance.genotypeRestriction ? `<span class="choice-sub">Requires: ${escapeHtml(alliance.genotypeRestriction)}</span>` : ''}
+        ${!eligible ? '<span class="choice-sub" style="color:#c25b4a">Not eligible for this character\'s genotype.</span>' : ''}
+      </button>`);
+      if (state.character.crypticAlliance && state.character.crypticAlliance.key === key) btn.classList.add('selected');
+      if (eligible) btn.addEventListener('click', () => selectAlliance(key));
+      grid.appendChild(btn);
+    }
+    card.appendChild(grid);
+
+    const skipRow = el('<div class="btn-row"></div>');
+    const skipBtn = el(`<button type="button" class="btn btn-secondary">${state.allianceSkipped ? '✓ ' : ''}No Alliance (skip this step)</button>`);
+    skipBtn.addEventListener('click', () => {
+      state.character.crypticAlliance = null;
+      state.allianceSkipped = true;
+      render();
+    });
+    skipRow.appendChild(skipBtn);
+    card.appendChild(skipRow);
+    wizard.appendChild(card);
+
+    if (state.character.crypticAlliance) {
+      wizard.appendChild(renderAllianceWingPicker(state.character.crypticAlliance.key));
+    }
+
+    const ready = state.allianceSkipped || (state.character.crypticAlliance && (state.character.crypticAlliance.wing || !GW4E.getAllianceWings(state.character.crypticAlliance.key)));
+    if (ready) {
+      const row = el('<div class="btn-row"></div>');
+      const next = el('<button type="button" class="btn">Continue to Character Sheet →</button>');
+      next.addEventListener('click', () => {
+        state.log.add('Cryptic Alliance', state.character.crypticAlliance
+          ? `${GW4E.getAlliance(state.character.crypticAlliance.key).displayName}${state.character.crypticAlliance.wing ? ' (' + state.character.crypticAlliance.wing + ')' : ''}`
+          : 'None');
+        goToStep('sheet');
+      });
+      row.appendChild(next);
+      wizard.appendChild(row);
+    }
+  }
+
+  function selectAlliance(key) {
+    state.character.crypticAlliance = { key, wing: null };
+    state.allianceSkipped = false;
+    render();
+  }
+
+  function renderAllianceWingPicker(allianceKey) {
+    const alliance = GW4E.getAlliance(allianceKey);
+    const wings = GW4E.getAllianceWings(allianceKey);
+    const card = el('<div class="card"></div>');
+
+    if (wings) {
+      card.appendChild(el(`<h3>${escapeHtml(alliance.displayName)} — Choose a Wing</h3>`));
+      const grid = el('<div class="choice-grid"></div>');
+      for (const wing of wings) {
+        const btn = el(`<button type="button" class="choice-card" data-wing="${wing.key}">
+          <span class="choice-title">${escapeHtml(wing.label)}</span>
+          <span class="choice-sub">${escapeHtml(wing.description)}</span>
+        </button>`);
+        if (state.character.crypticAlliance.wing === wing.key) btn.classList.add('selected');
+        btn.addEventListener('click', () => {
+          state.character.crypticAlliance.wing = wing.key;
+          render();
+        });
+        grid.appendChild(btn);
+      }
+      card.appendChild(grid);
+    } else {
+      card.appendChild(el(`<h3>${escapeHtml(alliance.displayName)}</h3>`));
+    }
+
+    card.appendChild(el(`<div class="sheet-section" style="margin-top:0.85rem">
+      <div class="field-line"><span class="field-label">Symbol:</span>${escapeHtml(alliance.symbol)}</div>
+      <div class="field-line"><span class="field-label">Benefits:</span>${escapeHtml(alliance.benefits)}</div>
+      <div class="field-line"><span class="field-label">Restrictions:</span>${escapeHtml(alliance.restrictions)}</div>
+      <div class="field-line"><span class="field-label">XP Bonus:</span>${escapeHtml(alliance.experiencePointBonus)}</div>
+    </div>`));
+
+    return card;
+  }
+
+  // -----------------------------------------------------------------
+  // Step 8: Sheet
   // -----------------------------------------------------------------
 
   async function revealSheetSequentially() {
@@ -755,7 +858,8 @@
       <div class="field-line"><span class="field-label">Genotype:</span>${escapeHtml(genotype.displayName)}${c.baseStock ? ' (' + escapeHtml(c.baseStock) + ')' : ''}</div>
       <div class="field-line"><span class="field-label">Character Class:</span>${escapeHtml(cls.displayName)}</div>
       <div class="field-line"><span class="field-label">Level:</span>1</div>
-      <div class="field-line"><span class="field-label">Cryptic Alliance:</span>None (not yet resolved — full alliance write-ups not extracted from source data)</div>
+      <div class="field-line"><span class="field-label">Cryptic Alliance:</span>${escapeHtml(allianceDisplayText(c))}</div>
+      ${c.crypticAlliance ? `<div class="field-line"><span class="field-label">Alliance Benefits:</span>${escapeHtml(GW4E.getAlliance(c.crypticAlliance.key).benefits)}</div>` : ''}
       <div class="field-line"><span class="field-label">Home Town / Tech Level:</span>Tech III settlement (assumed)</div>
       <div class="field-line"><span class="field-label">Base Stock Abilities:</span>${escapeHtml(baseStockAbilitiesText(c))}</div>
     </div>`));
@@ -820,7 +924,7 @@
 
     sheet.appendChild(el(`<div class="sheet-section">
       <h3>Notes / Gaps</h3>
-      <p class="hint">Cryptic Alliance skipped (full write-ups not yet extracted from source data). Starting equipment/loot not yet rolled — Domars shown above per the starting-funds formula only. Page 2 (Equipment/Artifacts) omitted.</p>
+      <p class="hint">Starting equipment/loot not yet rolled — Domars shown above per the starting-funds formula only. Page 2 (Equipment/Artifacts) omitted.</p>
     </div>`));
 
     wizard.appendChild(sheet);
@@ -834,6 +938,14 @@
     if (c.genotype === 'mutatedAnimal' && c.baseStock) return GW4E.getBaseAnimalStock(c.baseStock).notes;
     if (c.genotype === 'sentientPlant' && c.baseStock) return GW4E.getBasePlantStock(c.baseStock).notes;
     return 'None';
+  }
+
+  function allianceDisplayText(c) {
+    if (!c.crypticAlliance) return 'None';
+    const alliance = GW4E.getAlliance(c.crypticAlliance.key);
+    const wings = GW4E.getAllianceWings(c.crypticAlliance.key);
+    const wingLabel = wings && c.crypticAlliance.wing ? wings.find((w) => w.key === c.crypticAlliance.wing).label : null;
+    return alliance.displayName + (wingLabel ? ` (${wingLabel})` : '');
   }
 
   function mutationTable(list, isMental) {

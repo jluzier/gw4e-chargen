@@ -88,10 +88,9 @@
   }
 
   // Splits a 1-100 engine roll into the {tens, ones} a physical percentile
-  // pair would show. tens is in {0,10,...,90} (the vendored lib's 'd100'
-  // type is literally a d10 relabeled 00/10/.../90 - see vendor/dice/dice.js
-  // create_d100 - so it needs its own d10 "ones" companion for the full
-  // 1-100 range, same as a real two-die percentile roll).
+  // pair would show. tens is in {0,10,...,90} - the *displayed* value (the
+  // vendored lib's 'd100' type is a d10 relabeled 00/10/.../90 and reports
+  // its landed face this way, see get_dice_value()'s `matindex *= 10`).
   function percentileParts(value) {
     const tens = Math.floor(value / 10) % 10 * 10;
     const ones = value % 10;
@@ -100,7 +99,14 @@
 
   function animateD100(anchorEl, value) {
     const { tens, ones } = percentileParts(value);
-    return animateNotation(anchorEl, '1d100+1d10', [tens, ones]);
+    // shift_dice_faces() - the function that actually forces a die to a
+    // requested value - checks it against CONSTS.dice_face_range['d100'],
+    // which is [0,9]: the RAW face index, not the *10 display value used
+    // everywhere else for this die type. Passing `tens` (0/10/.../90)
+    // directly fails that range check for every value except 0, so the
+    // force silently no-ops and the die lands on an uncontrolled natural
+    // roll instead. Divide by 10 to match what shift_dice_faces expects.
+    return animateNotation(anchorEl, '1d100+1d10', [tens / 10, ones]);
   }
 
   // attrResult: an entry from character.attributes[X] (has .rolls and .formula)

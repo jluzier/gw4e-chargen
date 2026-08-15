@@ -327,9 +327,15 @@
     }
 
     if (!state.mutation) {
+      card.appendChild(el('<div class="dice-anchor" id="mutationCountDiceAnchor"></div>'));
       const btn = el('<button type="button" class="btn">Roll Mutation Count (1d6)</button>');
-      btn.addEventListener('click', () => {
+      btn.addEventListener('click', async () => {
+        btn.disabled = true;
         const counts = GW4E.mutationCountByD6(Math.random, state.log);
+        const anchor = document.getElementById('mutationCountDiceAnchor');
+        if (anchor && window.DiceVisuals) {
+          await DiceVisuals.animateSingleDie(anchor, 6, counts.roll);
+        }
         state.mutation = {
           physicalTotal: counts.physical,
           mentalTotal: counts.mental,
